@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DRIA uses dexterous in-hand reorientation to expose target regions of complex-shaped industrial parts to fixed RGB cameras, with a diffusion policy trained entirely in simulation.">
+  <title>DRIA | Dexterous In-Hand Reorientation for Target ROI Image Acquisition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a>
+      <a href="#videos">Videos</a>
+      <!-- 正式发布引用信息后，移除下方链接及 BibTeX 按钮、章节的 hidden 属性 -->
+      <a href="#bibtex" hidden>BibTeX</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- ===== Header: replace title, authors, institutions, and venue here ===== -->
+    <header class="paper-header">
+      <!-- 在这里替换论文完整标题 -->
+      <h1>DRIA: Dexterous In-Hand Reorientation for Target ROI Image Acquisition of Complex-Shaped Industrial Parts</h1>
+      <!-- 在这里替换作者姓名、个人主页链接和机构上标 -->
+      <p class="authors"><a href="#">Xin Sun</a><sup>1,3,4</sup>, <a href="#">Shichuang Wang</a><sup>1</sup>,
+        <a href="#">Linan Deng</a><sup>2</sup>, <a href="#">Feng Hua</a><sup>2</sup>,
+        <a href="#">Xing Liu</a><sup>2</sup>, <a href="#">Jun Cheng</a><sup>1</sup>,
+        <a href="#">Zhanpeng Yang</a><sup>1</sup>, <a href="#">Xuechun Qiao</a><sup>1</sup>,
+        <a href="#">Cheng Cheng</a><sup>1,3,4,*</sup></p>
+      <!-- 在这里替换机构名称 -->
+      <p class="affiliations"><sup>1</sup>School of Artificial Intelligence and Automation, Huazhong University of Science and Technology</p>
+      <p class="affiliations"><sup>2</sup>School of Mechanical Science and Engineering, Huazhong University of Science and Technology</p>
+      <p class="affiliations"><sup>3</sup>Belt and Road Joint Laboratory on Measurement and Control Technology, Huazhong University of Science and Technology</p>
+      <p class="affiliations"><sup>4</sup>Autonomous Intelligent Unmanned System Engineering Research Center, Ministry of Education of China, Huazhong University of Science and Technology</p>
+      <p class="affiliations"><sup>1,2</sup>1037 Luoyu Road, Wuhan 430074, China</p>
+      <p class="affiliations"><sup>3,4</sup>Wuhan 430074, China</p>
+      <p class="affiliations"><sup>*</sup>Corresponding author: <a href="mailto:c_cheng@hust.edu.cn">c_cheng@hust.edu.cn</a></p>
+      <!-- 正式发表后在这里替换会议/期刊信息；当前不标注录用状态 -->
+      <p class="venue">Research Manuscript</p>
+    </header>
+
+    <!-- ===== Links: replace href values with paper/code/video links ===== -->
+    <div class="button-row" aria-label="Project links">
+      <a class="button" href="#"><i class="fa-regular fa-file-lines"></i> Paper</a>
+      <!-- 代码链接确定后，将 span 改为 a、移除 button-tbd 和 aria-disabled，并填入 href -->
+      <span class="button button-tbd" aria-disabled="true" title="Code link to be determined"><i class="fa-brands fa-github" aria-hidden="true"></i> Code (TBD)</span>
+      <a class="button" href="#videos"><i class="fa-solid fa-film"></i> Video</a>
+      <a class="button" href="#bibtex" hidden><i class="fa-solid fa-quote-right"></i> BibTeX</a>
+    </div>
+
+    <!-- ===== Teaser: replace video src/poster paths; keep autoplay muted loop playsinline ===== -->
+    <section class="section teaser" aria-labelledby="teaser-title">
+      <h2 id="teaser-title" class="sr-only">Teaser</h2>
+      <!-- 在这里替换引导性问题和说明文字 -->
+      <p class="teaser-question">Can a dexterous hand expose hidden inspection regions while the cameras stay fixed?</p>
+      <p class="teaser-note">DRIA learns in-hand part reorientation entirely in simulation and transfers to a real hand using only multi-view RGB observations.</p>
+      <!-- ===== Real-world Videos: 来自 DRIA 文件夹；grid-three 可改为 grid-four / grid-two ===== -->
+      <h3 class="video-group-title">Carriage and bearing reorientation</h3>
+      <div class="video-grid grid-three">
+        <figure class="video-card">
+          <!-- 在这里替换 Carriage 视频路径、封面路径和说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 4 / 3">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/2048929961.jpg" src="static/videos/2048929961.mp4" aria-label="Carriage reorientation"></video>
+          </div>
+          <figcaption class="caption">Carriage reorientation</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换 Bearing1 视频路径、封面路径和说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 4 / 3">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/374234212.jpg" src="static/videos/374234212.mp4" aria-label="Bearing1 reorientation"></video>
+          </div>
+          <figcaption class="caption">Bearing1 reorientation</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换 Bearing2 视频路径、封面路径和说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 4 / 3">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/288632057.jpg" src="static/videos/288632057.mp4" aria-label="Bearing2 reorientation"></video>
+          </div>
+          <figcaption class="caption">Bearing2 reorientation</figcaption>
+        </figure>
+      </div>
+      <h3 class="video-group-title">Real-world nut reorientation</h3>
+      <div class="video-grid grid-three">
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 1 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/1424002461.jpg" src="static/videos/1424002461.mp4" aria-label="Nut reorientation · Clip 1"></video>
+          </div>
+          <figcaption class="caption">Nut reorientation · Clip 1</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 1 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/2073040279.jpg" src="static/videos/2073040279.mp4" aria-label="Nut reorientation · Clip 2"></video>
+          </div>
+          <figcaption class="caption">Nut reorientation · Clip 2</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 1 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/343415262.jpg" src="static/videos/343415262.mp4" aria-label="Nut reorientation · Clip 3"></video>
+          </div>
+          <figcaption class="caption">Nut reorientation · Clip 3</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 1 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/60789955.jpg" src="static/videos/60789955.mp4" aria-label="Nut reorientation · Clip 4"></video>
+          </div>
+          <figcaption class="caption">Nut reorientation · Clip 4</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 1 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/965385884.jpg" src="static/videos/965385884.mp4" aria-label="Nut reorientation · Clip 5"></video>
+          </div>
+          <figcaption class="caption">Nut reorientation · Clip 5</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 1 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/997680083.jpg" src="static/videos/997680083.mp4" aria-label="Nut reorientation · Clip 6"></video>
+          </div>
+          <figcaption class="caption">Nut reorientation · Clip 6</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Abstract: replace paragraph and bold keywords here ===== -->
+    <section class="section" id="abstract"><h2>Abstract</h2>
+      <!-- 摘要来自 rcim.pdf 草稿；在这里替换最终摘要 -->
+      <p>Automated visual inspection of complex-shaped industrial parts requires images of critical regions of interest (ROIs), such as internal threads and bearing bores, that are frequently occluded from fixed viewpoints. Existing automated optical inspection (AOI) systems can improve inspection coverage through multi-camera configurations or robot-guided viewpoint adjustment, but these approaches may increase hardware complexity or require additional viewpoint planning. This paper presents <strong>DRIA</strong>, a framework that instead employs a dexterous hand as an <strong>active part-presentation device</strong>, reorienting a grasped part until its target ROI is exposed to fixed RGB cameras. To enable RGB-only deployment without real-world demonstrations, a privileged reinforcement-learning (RL) teacher is trained in simulation, and its successful rollouts are converted into multi-view vision–action trajectories for training a vision-conditioned diffusion policy. During real-world deployment, a lightweight visual-alignment step reduces the appearance difference between simulated and real observations, allowing the policy to operate on <strong>RGB images alone, without depth sensing, object-pose estimation, or policy fine-tuning</strong>. In physical experiments involving 400 trials on four industrial parts, DRIA achieved a complete-task success rate of <strong>65.5%</strong> and a target ROI exposure rate of <strong>72.0%</strong>. In separate baseline comparisons, DRIA outperformed Action Chunking with Transformers (ACT), deterministic behavior cloning, and open-loop replay in both simulation (77.9% vs. 56.3%, 35.0%, and 23.2%) and physical experiments (68.8% vs. 48.8%, 28.8%, and 16.3%). These results demonstrate the feasibility of dexterous in-hand reorientation as a flexible image-acquisition strategy for automated part inspection.</p>
+    </section>
+
+    <!-- ===== Method: replace figure path, caption, and bullets here ===== -->
+    <section class="section" id="method"><h2>Method</h2>
+      <!-- 在这里替换方法图路径及原始 PDF 链接（论文 Figure 2） -->
+      <figure class="paper-figure">
+        <a href="static/images/Figure_2.pdf" target="_blank" rel="noopener" aria-label="Open Figure 2 as a PDF in a new tab"><img src="static/images/method.png" width="2400" height="1017" alt="DRIA teacher–student pipeline for RGB-based in-hand reorientation" decoding="async"></a>
+        <figcaption class="caption">Figure 2. DRIA pipeline: privileged teacher learning, simulation demonstration generation, and vision-conditioned student learning with real-world deployment.</figcaption>
+      </figure>
+      <p>Instead of moving cameras around a stationary part, DRIA changes the pose of the grasped part to expose a predefined target ROI. A separate policy is trained for each part through three stages:</p>
+      <ul>
+        <li><strong>Privileged teacher learning.</strong> A PPO teacher learns contact-rich in-hand reorientation in Isaac Gym using hand joint states, object pose and velocity, and a part-specific target orientation. The reward encourages orientation alignment while penalizing positional drift and abrupt joint commands.</li>
+        <li><strong>Simulation demonstration generation.</strong> Successful teacher rollouts are recorded as synchronized three-view RGB observations and 11-dimensional joint-position commands. The dataset contains 3,000 successful trajectories per part, or 12,000 in total, including a short holding phase at the target pose.</li>
+        <li><strong>Student learning and deployment.</strong> A ResNet18 encoder and conditional one-dimensional U-Net learn an action diffusion policy from simulation trajectories. At deployment, green-background pixels in real camera images are replaced with white to match the simulated appearance. The frozen policy executes action chunks at 15 Hz, without real-world demonstrations, depth sensing, object-pose estimation, or policy fine-tuning.</li>
+      </ul>
+    </section>
+
+    <!-- ===== Results: replace question headings, text, images, and captions here ===== -->
+    <section class="section" id="results"><h2>Results</h2>
+      <!-- 结果取自 rcim.pdf 草稿；在这里替换文字、图像和图注 -->
+      <p>The physical cell uses an 11-DoF, three-fingered GX11 hand and three fixed RGB cameras. Four parts are evaluated: a 3D-printed hex nut (Nut), an HGH15CA linear-rail carriage (Carriage), and SBR16UU and LHSSK16 bearing units (Bearing1 and Bearing2). Their target ROIs are the internal thread, rail groove, and bearing bores.</p>
+
+      <h3>Can DRIA acquire target ROI images on the real platform?</h3>
+      <ul>
+        <li>Across <strong>400 physical trials</strong> (100 per part), DRIA achieves <strong>65.5% complete-task success</strong> (262/400; 95% CI: 60.7–70.0%) and <strong>72.0% target ROI exposure</strong> (288/400; 95% CI: 67.4–76.2%).</li>
+        <li>Complete-task success requires the target orientation and a stable grasp at the end of the trial. ROI exposure counts a trial if the target region meets its presentation criterion in at least one camera frame while the part is still held.</li>
+        <li>In 26 trials, the ROI was exposed before the part was later dropped, highlighting grasp stability as a remaining limitation.</li>
+      </ul>
+      <!-- 在这里替换真实轨迹图路径及原始 PDF 链接（论文 Figure 8） -->
+      <figure class="paper-figure">
+        <a href="static/images/Figure_8.pdf" target="_blank" rel="noopener" aria-label="Open Figure 8 as a PDF in a new tab"><img src="static/images/result-01.png" width="2401" height="1612" alt="Physical reorientation trajectories of Carriage, Bearing1, and Bearing2 exposing the target ROIs" loading="lazy" decoding="async"></a>
+        <figcaption class="caption">Figure 8. Representative physical trajectories of Carriage, Bearing1, and Bearing2: target regions become visible during in-hand reorientation.</figcaption>
+      </figure>
+
+      <h3>How does DRIA compare with other action-generation methods?</h3>
+      <ul>
+        <li>In simulation, DRIA achieves <strong>77.9 ± 0.7% average success</strong> and a time-to-finish of <strong>3.7 ± 0.5 s</strong> on successful episodes. It has the highest success rate among the evaluated methods that do not use privileged states, while the privileged RL teacher reaches 88.7 ± 0.7%.</li>
+        <li>In a <strong>separate physical comparison with 80 new trials per method</strong> (20 per part), DRIA achieves <strong>68.8% complete-task success</strong> and <strong>73.8% ROI exposure</strong>.</li>
+      </ul>
+      <div class="table-scroll">
+        <table class="results-table">
+          <caption>Baseline comparison. Simulation success is mean ± standard deviation over three runs; physical rates use 80 trials per method.</caption>
+          <thead><tr><th scope="col">Method</th><th scope="col">Simulation success</th><th scope="col">Physical task success</th><th scope="col">Physical ROI exposure</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Replay</th><td>23.2 ± 1.2%</td><td>16.3%</td><td>20.0%</td></tr>
+            <tr><th scope="row">CNN-BC</th><td>35.0 ± 0.7%</td><td>28.8%</td><td>31.3%</td></tr>
+            <tr><th scope="row">ACT</th><td>56.3 ± 0.6%</td><td>48.8%</td><td>53.8%</td></tr>
+            <tr><th scope="row">DRIA (Ours)</th><td><strong>77.9 ± 0.7%</strong></td><td><strong>68.8%</strong></td><td><strong>73.8%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 在这里替换轨迹对比图路径及原始 PDF 链接（论文 Figure 9） -->
+      <figure class="paper-figure">
+        <a href="static/images/Figure_9.pdf" target="_blank" rel="noopener" aria-label="Open Figure 9 as a PDF in a new tab"><img src="static/images/result-02.png" width="2400" height="960" alt="Nut reorientation by the teacher, simulation student, and physical student" loading="lazy" decoding="async"></a>
+        <figcaption class="caption">Figure 9. Nut reorientation by the privileged teacher, the RGB student in simulation, and the frozen student on the real hand.</figcaption>
+      </figure>
+
+      <h3>What do diffusion modeling and multiple camera views contribute?</h3>
+      <ul>
+        <li><strong>Diffusion ablation:</strong> replacing deterministic CNN-BC regression with action diffusion raises simulation success from 35.0% to 77.9%, and physical complete-task success from 28.8% to 68.8%.</li>
+        <li><strong>Multi-view ablation:</strong> compared with the best single camera selected on validation data, three views raise average simulation success from 67.0% to 77.9% and reduce time-to-finish from 5.4 s to 3.7 s.</li>
+      </ul>
+      <!-- ===== Multi-view Ablation Table: 在这里更新论文 Table 6 的数据 ===== -->
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Multi-view ablation table, scroll horizontally on small screens">
+        <table class="results-table ablation-table">
+          <caption>Table 6. Three-view DRIA versus the validation-selected best single camera (camera 2 for all four parts). SR: success rate; TTF: time-to-finish on successful episodes. Values are mean ± standard deviation over three runs; averages are across parts. ΔSR uses unrounded means and is in percentage points (pp).</caption>
+          <thead><tr><th scope="col">Part</th><th scope="col">Single-view SR (%)</th><th scope="col">Three-view SR (%)</th><th scope="col">ΔSR (pp)</th><th scope="col">Single-view TTF (s)</th><th scope="col">Three-view TTF (s)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Nut</th><td>65.3 ± 2.5</td><td><strong>76.7 ± 1.5</strong></td><td>+11.3</td><td>5.2 ± 0.5</td><td><strong>3.7 ± 0.5</strong></td></tr>
+            <tr><th scope="row">Carriage</th><td>67.3 ± 2.1</td><td><strong>79.0 ± 1.0</strong></td><td>+11.7</td><td>5.6 ± 0.5</td><td><strong>3.6 ± 0.4</strong></td></tr>
+            <tr><th scope="row">Bearing1</th><td>70.3 ± 2.1</td><td><strong>78.7 ± 1.5</strong></td><td>+8.3</td><td>4.9 ± 0.5</td><td><strong>3.5 ± 0.4</strong></td></tr>
+            <tr><th scope="row">Bearing2</th><td>65.0 ± 3.0</td><td><strong>77.3 ± 3.2</strong></td><td>+12.3</td><td>6.0 ± 0.7</td><td><strong>4.1 ± 0.5</strong></td></tr>
+            <tr><th scope="row">Average</th><td>67.0</td><td><strong>77.9</strong></td><td>+10.9</td><td>5.4</td><td><strong>3.7</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Can the acquired images support automatic ROI localization?</h3>
+      <ul>
+        <li>A Faster R-CNN detector trained only on simulation images achieves <strong>AP@0.5 = 0.940</strong> and <strong>F1 = 0.885</strong> on simulation validation images. It is used to evaluate the acquired images and does not control the hand.</li>
+        <li>In a qualitative check of 60 real frames, it locates the ROI in all 55 ROI-visible frames but also produces false positives in all five ROI-absent frames. Reliable rejection of absent ROIs remains unresolved.</li>
+      </ul>
+      <!-- 在这里替换 ROI 检测图路径及原始 PDF 链接（论文 Figure 10） -->
+      <figure class="paper-figure">
+        <a href="static/images/Figure_10.pdf" target="_blank" rel="noopener" aria-label="Open Figure 10 as a PDF in a new tab"><img src="static/images/result-04.png" width="2400" height="665" alt="Target ROI detections in real RGB images of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
+        <figcaption class="caption">Figure 10. Target ROI localization in real RGB frames of Nut, Carriage, Bearing1, and Bearing2.</figcaption>
+      </figure>
+      <p><strong>Scope and limitations.</strong> This feasibility study covers four small parts in a controlled cell, with one dedicated policy and one target ROI per part. Multi-ROI inspection, production variation, and defect-level visual assessment remain future work.</p>
+    </section>
+
+    <!-- ===== Videos: replace source/poster; optional YouTube/Bilibili iframe examples below ===== -->
+    <section class="section" id="videos"><h2>Supplementary Video</h2>
+      <!-- ===== Deployment Overview: 在这里替换视频说明及最终视频 ===== -->
+      <p>Nut recordings show the real and simulated camera observations alongside the physical setup. Additional nut clips compare the RL teacher and diffusion policy in simulation.</p>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media video-large" style="--video-ratio: 2 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/166289621.jpg" src="static/videos/166289621.mp4" aria-label="Nut multi-view deployment overview · Clip 1"></video>
+          </div>
+          <figcaption class="caption">Nut multi-view deployment overview · Clip 1</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media video-large" style="--video-ratio: 2 / 1">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/1147201446.jpg" src="static/videos/1147201446.mp4" aria-label="Nut multi-view deployment overview · Clip 2"></video>
+          </div>
+          <figcaption class="caption">Nut multi-view deployment overview · Clip 2</figcaption>
+        </figure>
+      <!-- ===== Simulation Comparison Videos ===== -->
+      <h3 class="video-group-title">Nut: RL teacher and diffusion policy in simulation</h3>
+      <div class="video-grid grid-two">
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 960 / 761">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/1001628895.jpg" src="static/videos/1001628895.mp4" aria-label="Nut RL / diffusion comparison · Clip 1"></video>
+          </div>
+          <figcaption class="caption">Nut RL / diffusion comparison · Clip 1</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、封面路径和下方说明文字 -->
+          <div class="video-slot video-media" style="--video-ratio: 960 / 761">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/images/video-posters/1225127581.jpg" src="static/videos/1225127581.mp4" aria-label="Nut RL / diffusion comparison · Clip 2"></video>
+          </div>
+          <figcaption class="caption">Nut RL / diffusion comparison · Clip 2</figcaption>
+        </figure>
+      </div>
+      <!-- YouTube example: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video" allowfullscreen></iframe> -->
+      <!-- Bilibili example: <iframe src="https://player.bilibili.com/player.html?bvid=BV_ID" title="Bilibili video" allowfullscreen></iframe> -->
+    </section>
+
+    <!-- ===== BibTeX: replace entry; copy behavior is in static/js/main.js ===== -->
+    <section class="section" id="bibtex" hidden><h2>BibTeX</h2>
+      <!-- 暂按未发表稿件引用；正式发表后替换类型、年份、期刊/会议、DOI 等 -->
+      <div class="bibtex-wrap"><button id="copy-bibtex" type="button"><i class="fa-regular fa-copy"></i> Copy to Clipboard</button><pre id="bibtex-code">@unpublished{sun2026dria,
+  title     = {{DRIA}: Dexterous In-Hand Reorientation for Target {ROI} Image Acquisition of Complex-Shaped Industrial Parts},
+  author    = {Sun, Xin and Wang, Shichuang and Deng, Linan and Hua, Feng and Liu, Xing and Cheng, Jun and Yang, Zhanpeng and Qiao, Xuechun and Cheng, Cheng},
+  note      = {Research manuscript},
+  year      = {2026}
+}</pre><span id="copy-status" role="status" aria-live="polite"></span></div>
+    </section>
+    <!-- ===== Acknowledgements: funding statement from rcim.pdf; replace here if revised ===== -->
+    <section class="section" id="acknowledgements"><h2>Acknowledgements</h2>
+      <p>This work was supported in part by the National Science and Technology Major Project on Intelligent Manufacturing Systems and Robots (Grant No. 2025ZD1603003); and in part by the National Natural Science Foundation of China under Grant 62373160, Grant 62503184, and Grant T2525012.</p>
+    </section>
+  </main>
+  <footer><p>Template adapted from a robotics project page layout. Replace all marked placeholders with your project content.</p></footer>
+  <script src="static/js/main.js"></script>
+</body>
+</html>
