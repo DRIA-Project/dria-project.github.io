@@ -1,6 +1,6 @@
 # DRIA project page
 
-The project website is a pure static `index.html` + `static/css/style.css` + `static/js/main.js`. No build tool or runtime package is required. Paper text, authors, four source figures, all thirteen supplied videos, and funding acknowledgements are retained; the manuscript is labeled **Robotics and Computer-Integrated Manufacturing (under review)**. Code remains **Code (TBD)**. Unreleased Paper/arXiv/Dataset/Models resources are disabled until real links are available.
+The project website is a pure static `index.html` + `static/css/style.css` + `static/js/main.js`. No build tool or runtime package is required. Paper text, authors, seven numbered source figures and the supplied part/ROI diagram, all thirteen supplied videos, and funding acknowledgements are retained; the manuscript is labeled **Robotics and Computer-Integrated Manufacturing (under review)**. Code remains **Code (TBD)**. Unreleased Paper/arXiv/Dataset/Models resources are disabled until real links are available.
 
 ### Preview and GitHub Pages
 
@@ -34,26 +34,27 @@ Each section is delimited by `<!-- ===== … ===== -->` with replacement notes. 
 | News | On, placeholder | `[YYYY-MM] Paper submitted to RCIM.`; insert newer dated entries first |
 | Video Presentation | On, placeholder | `static/videos/presentation.mp4`; commented YouTube/Bilibili iframe examples included |
 | Abstract | On | Existing abstract, with requested terminology normalization |
-| Motivation | On, figure placeholder | `static/images/fig1_motivation.png` |
+| Motivation | On | Supplied Fig. 1 (`fig1_motivation.png`, source `Figure_1.pdf`) |
 | Contributions | On | Three supplied contribution points |
 | Method | On | Existing Fig. 2 plus three stage cards |
 | Optional method details | Hidden | `static/images/fig4_student.png`, `static/images/fig5_alignment.png` |
-| Parts & Target ROIs | On, image placeholders | Four part cards plus `static/images/fig7_tasks.png` |
-| Inspection Cell Setup | On, figure placeholder | `static/images/fig6_setup.png`; supplied hardware details |
+| Parts & Target ROIs | On | Four ROI-annotated crops from `Parts_ROIs.pdf`, plus supplied Fig. 7 |
+| Inspection Cell Setup | On | Supplied Fig. 6 (`fig6_setup.png`); supplied hardware details |
 | Simulation Results | On | Table 1, Expert RL separated from ranked baselines |
-| Real-World Results | On | Table 2; Nut → Carriage → Bearing1 → Bearing2; success/failure slots plus existing recordings and Fig. 8 |
-| Sim-to-Real Consistency | On, video placeholders | Three separately labeled Nut clips; existing Fig. 9 |
-| Baseline Comparison | On, video placeholders | Table 3 plus four methods per part |
+| Real-World Results | On | Table 2; Nut → Carriage → Bearing1 → Bearing2; existing recordings and Fig. 8 |
+| Sim-to-Real Consistency | On | Supplied Fig. 9 and its explanatory text |
+| Baseline Comparison | On | Table 3 and its explanatory text |
 | Ablation Studies | On | Table 4 with multi-level header and existing diffusion/multi-view text |
-| Visual Alignment | On, image placeholders | `static/images/alignment/raw_rgb.png`, `aligned_rgb.png`; may replace with video cards |
 | Target ROI Detection | On | Existing Fig. 10 and four panel crops; existing false-positive limitation preserved |
-| Failure Analysis | On, video placeholders | Three supplied type labels; 26-drop statement retained; two unfilled descriptions remain placeholders |
 | Supplementary Video | On | All four existing Nut overview/comparison clips |
 | Video of all trials | **Commented out** | Copy its example for all four parts when compilation videos are ready |
 | BibTeX | **Hidden** | Provisional entry retained; only reveal after public citation details are ready |
 | Acknowledgements / footer | On | Funding text preserved; template attribution and CC BY-SA 4.0 template notice |
 
 There are four website result tables, numbered Table 1–4 for the site (the PDF has its own numbering). Figures retain paper numbers and use `Fig. N: …`. Baseline values come from the supplied request. Existing manuscript numbers, confidence intervals, and limitations are retained, with no new experimental values added. Expert RL is simulation-only and excluded from `best`/`second` ranking.
+
+
+The standalone Visual Alignment and Failure Analysis sections, success/failure video slots, three-video sim-to-real comparison, and baseline video grids were removed at the author’s request. The original thirteen recordings, supplied Fig. 9, numerical comparison tables, and factual limitations remain.
 
 ### Components you can copy
 
@@ -76,6 +77,11 @@ All video display stages are 16:9, with `object-fit: contain`: square and 4:3 so
 
 | File | Content / location |
 | --- | --- |
+| `static/images/fig1_motivation.png`, `Figure_1.pdf` | Motivation; updated source uses the DRIA name |
+| `static/images/fig6_setup.png`, `Figure_6.pdf` | Physical inspection cell |
+| `static/images/fig7_tasks.png`, `Figure_7.pdf` | Initial poses, reorientation, and target poses |
+| `static/images/Parts_ROIs.pdf` | Original supplied `论文图片.pdf`, containing all four part/ROI illustrations |
+| `static/images/parts/{nut,carriage,bearing1,bearing2}.png` | Cropped from the supplied part/ROI diagram, retaining ROI annotations |
 | `static/images/method.png`, `Figure_2.pdf` | Method overview |
 | `static/images/result-01.png`, `Figure_8.pdf` | Real-World Results: physical trajectories |
 | `static/images/result-02.png`, `Figure_9.pdf` | Sim-to-Real Consistency |
@@ -89,7 +95,7 @@ All video display stages are 16:9, with `object-fit: contain`: square and 4:3 so
 | `static/videos/1001628895.mp4`, `1225127581.mp4` | Nut RL / student policy simulation comparisons |
 | `static/images/video-posters/{numeric_filename}.jpg` | Real posters for supplied clips |
 
-Original numeric video filenames and all four source PDF/image paths are unchanged. The thirteen supplied MP4 files have H.264 video, no audio, faststart enabled, and each is below 4 MB. The source Downloads folder is not needed to serve the site.
+Original numeric video filenames and the original Fig. 2/8/9/10 PDF/image paths are unchanged. The thirteen supplied MP4 files have H.264 video, no audio, faststart enabled, and each is below 4 MB. The source Downloads folder is not needed to serve the site.
 
 ### Material checklist and suggested exports
 
@@ -98,13 +104,8 @@ Original numeric video filenames and all four source PDF/image paths are unchang
 | Cover | `static/videos/hero.mp4` | 16:9, 1280×720 or 1920×1080, 8–20 s, below 10 MB |
 | Project presentation | `static/videos/presentation.mp4` | 16:9, 1280×720, about 1–3 min; long presentations can use the commented iframe |
 | Logo / share image | `static/images/logo.png`, `static/images/social-preview.png` | Transparent logo, about 256×256; sharing image about 1200×630 |
-| Motivation / student / alignment / setup / task figures | `fig1_motivation.png`, `fig4_student.png`, `fig5_alignment.png`, `fig6_setup.png`, `fig7_tasks.png` in `static/images/` | PNG around 2000–2400px wide; preserve figure aspect ratio |
-| Individual part images | `static/images/parts/{nut,carriage,bearing1,bearing2}.png` | 4:3, about 800×600, consistent backgrounds |
-| Success / failure pairs | `static/videos/real/{nut,carriage,bearing1,bearing2}_{success,failure}.mp4` | 16:9 preferred, 1280×720, roughly 5–20 s; verify trial outcome |
-| Matched Nut teacher / student videos | `static/videos/consistency/nut_teacher_sim.mp4`, `nut_student_sim.mp4`, `nut_student_real.mp4` | 1280×720, roughly 5–15 s, matching initial state/view/duration when possible |
-| Physical baseline recordings | `static/videos/baselines/{nut,carriage,bearing1,bearing2}_{replay,cnn_bc,act,dria}.mp4` | Roughly 5–20 s, comparable viewpoint and real-time speed; verify method labels |
-| Alignment comparison | `static/images/alignment/raw_rgb.png`, `aligned_rgb.png` | Same scene/time/view, equal dimensions |
-| Failure groups | `static/videos/failures/{dropped_after_exposure,grasp_lost,target_not_reached}_01.mp4` | Roughly 5–15 s, show the relevant failure clearly |
+| Optional method details | `fig4_student.png`, `fig5_alignment.png` in `static/images/` | PNG around 2000–2400px wide; preserve figure aspect ratio |
+| Individual part images | `static/images/parts/{nut,carriage,bearing1,bearing2}.png` | Supplied ROI diagram crops are already included; replace with other images if desired |
 | All-trial compilations | `static/videos/all_trials/{nut,carriage,bearing1,bearing2}.mp4` | Optional long video; hosted embed can avoid large repo files |
 
 Naming is lowercase, no spaces, and matches each visible placeholder. Size/time suggestions are media export guidance, not experimental statistics. Add actual News dates and official release links when ready.
