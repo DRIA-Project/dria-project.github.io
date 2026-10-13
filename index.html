@@ -65,9 +65,17 @@
       <!-- 论文公开后将禁用 button 改为 a class="button" href="真实论文链接" -->
       <button class="button button-disabled" type="button" disabled><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Paper (Coming Soon)</button>
       <button class="button button-disabled" type="button" disabled><i class="fa-brands fa-github" aria-hidden="true"></i> Code (TBD)</button>
-      <a class="button" href="#results"><i class="fa-solid fa-film" aria-hidden="true"></i> Video</a>
+      <a class="button" href="#overview"><i class="fa-solid fa-film" aria-hidden="true"></i> Video</a>
       <a class="button" href="#bibtex" hidden><i class="fa-solid fa-quote-right" aria-hidden="true"></i> BibTeX</a>
     </div>
+
+    <!-- ===== Project Overview Video: 在这里替换总述视频路径、poster 封面和图注 ===== -->
+    <figure class="video-card overview-video" id="overview">
+      <div class="video-slot">
+        <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2057267258.mp4" poster="static/images/video-posters/2057267258.jpg" aria-label="DRIA project overview"></video>
+      </div>
+      <figcaption>Project Overview</figcaption>
+    </figure>
 
     <!-- ===== Abstract: 在这里替换简短项目摘要 ===== -->
     <section class="section" id="abstract" data-nav="Abstract">
