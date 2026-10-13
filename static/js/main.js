@@ -5,15 +5,11 @@
   const main = document.querySelector('main');
   const nav = document.querySelector('#section-nav');
   const topLink = document.querySelector('.back-to-top');
-  const hero = document.querySelector('#hero');
-  const heroVideo = hero?.querySelector('video');
-  const heroPause = document.querySelector('.hero-pause');
   const inView = new Set();
   const userPaused = new WeakSet();
   let sections = [];
   let navLinks = [];
   let scrollQueued = false;
-  let heroPaused = false;
 
   /* ===== Dynamic navigation and active-section tracking ===== */
   function visible(element) {
@@ -102,7 +98,6 @@
   }
   function playIfVisible(video) {
     if (!inView.has(video) || document.hidden || reducedMotion.matches || userPaused.has(video)) return;
-    if (video === heroVideo && (hero.hidden || heroPaused)) return;
     const promise = video.play();
     if (promise?.catch) promise.catch(() => { /* Playback controls remain available. */ });
   }
@@ -136,8 +131,7 @@
       else playIfVisible(video);
     });
     video.addEventListener('error', () => {
-      if (video === heroVideo) { hero.hidden = true; heroVideo.pause(); }
-      else showMediaError(video);
+      showMediaError(video);
     });
     // Explicit keyboard/pointer controls can resume a video under reduced motion.
     video.addEventListener('pause', () => {
@@ -170,21 +164,18 @@
     });
   });
 
-  /* ===== Optional cover and logo; failed cover restores the compact header ===== */
-  function syncHero() {
-    if (!hero || !heroVideo) return;
-    hero.hidden = document.body.dataset.hero !== 'video';
-    if (hero.hidden) { inView.delete(heroVideo); heroVideo.pause(); }
-    else if (videoObserver) { videoObserver.unobserve(heroVideo); videoObserver.observe(heroVideo); }
-  }
-  syncHero();
-  new MutationObserver(syncHero).observe(document.body, { attributes: true, attributeFilter: ['data-hero'] });
-  heroPause?.addEventListener('click', () => {
-    heroPaused = !heroPaused;
-    if (heroPaused) heroVideo.pause(); else { userPaused.delete(heroVideo); playIfVisible(heroVideo); }
-    heroPause.textContent = heroPaused ? 'Play video' : 'Pause video';
-    heroPause.setAttribute('aria-label', heroPaused ? 'Play cover video' : 'Pause cover video');
+  /* ===== Native disclosures: pause recordings when the panel closes ===== */
+  document.querySelectorAll('details').forEach(panel => {
+    panel.addEventListener('toggle', () => {
+      if (panel.open) return;
+      panel.querySelectorAll('video').forEach(video => {
+        inView.delete(video);
+        video.pause();
+      });
+    });
   });
+
+  /* ===== Optional logo ===== */
   document.querySelectorAll('img[data-optional-logo]').forEach(img => {
     img.addEventListener('load', () => { img.hidden = false; });
     img.addEventListener('error', () => { img.hidden = true; });
