@@ -94,13 +94,13 @@ figcaption { margin-top: 12px; text-align: center; font-size: .83rem; line-heigh
 .part-card img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .part-card strong { display: block; font-size: .9rem; color: var(--color-accent); font-weight: 600; }
 .part-card span { display: block; margin-top: 3px; font-size: .77rem; }
-/* ===== Native disclosures: extra recordings and figures stay out of the main flow ===== */
-.disclosure { margin: 28px 0 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-.disclosure summary { padding: 15px 4px; cursor: pointer; color: var(--color-muted); font-size: .9rem; }
-.disclosure summary:hover, .disclosure[open] > summary { color: var(--color-accent); }
-.disclosure-content { padding: 4px 0 24px; }
+/* ===== Supplementary content: always displayed, without disclosure controls ===== */
+.supplementary-block { margin: 36px 0 0; padding-top: 20px; border-top: 1px solid var(--color-border); }
+.supplementary-heading { margin: 0 0 22px; color: var(--color-accent); font-size: 1.05rem; }
+.supplementary-content { padding: 0 0 12px; }
+.supplementary-content h4 { margin: 28px 0 18px; font-size: .95rem; font-weight: 600; }
 .acknowledgements { margin: 20px 0 45px; }
-.acknowledgements .disclosure-content { font-size: .83rem; color: var(--color-muted); }
+.acknowledgements .supplementary-content { font-size: .83rem; color: var(--color-muted); }
 /* ===== Hidden BibTeX / footer / back to top ===== */
 .bibtex-wrap { position: relative; }
 .bibtex-wrap pre { margin: 0; padding: 65px 20px 22px; overflow: auto; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 6px; font-size: .75rem; line-height: 1.8; }

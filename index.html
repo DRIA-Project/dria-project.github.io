@@ -85,7 +85,7 @@
       </ul>
     </section>
 
-    <!-- ===== Method: 方法主图与简短说明；研究动机图可展开 ===== -->
+    <!-- ===== Method: 方法主图与简短说明；研究动机图直接展示 ===== -->
     <section class="section" id="method" data-nav="Method">
       <h2>Method</h2>
       <figure class="paper-figure ">
@@ -94,16 +94,16 @@
         <figcaption>Simulation teacher → vision–action demonstrations → RGB-conditioned student policy.</figcaption>
       </figure>
       <p class="section-description">A privileged teacher learns in-hand reorientation in simulation. Its successful trajectories train a diffusion policy, which controls the real hand from three fixed RGB cameras.</p>
-      <details class="disclosure">
-        <summary>Research motivation</summary>
-        <div class="disclosure-content">
+      <div class="supplementary-block">
+        <h3 class="supplementary-heading">Research motivation</h3>
+        <div class="supplementary-content">
       <figure class="paper-figure ">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
         <a href="static/images/Figure_1.pdf" target="_blank" rel="noopener" aria-label="Open Figure 1 as a PDF"><img src="static/images/fig1_motivation.png" width="2400" height="890" alt="Inspection methods and the proposed DRIA framework" loading="lazy" decoding="async"></a>
         <figcaption>Fixed-view inspection, learning-based methods, and active in-hand part presentation.</figcaption>
       </figure>
         </div>
-      </details>
+      </div>
     </section>
 
     <!-- ===== Parts & Experimental Setup: 零件图统一画布和显示高度，保持原始比例 ===== -->
@@ -137,19 +137,19 @@
         <a href="static/images/Figure_6.pdf" target="_blank" rel="noopener" aria-label="Open Figure 6 as a PDF"><img src="static/images/fig6_setup.png" width="2361" height="2400" alt="Physical inspection cell with a dexterous hand and three fixed RGB cameras" loading="lazy" decoding="async"></a>
         <figcaption>A GX11 dexterous hand and three fixed RGB cameras.</figcaption>
       </figure>
-      <details class="disclosure">
-        <summary>Target poses</summary>
-        <div class="disclosure-content">
+      <div class="supplementary-block">
+        <h3 class="supplementary-heading">Target poses</h3>
+        <div class="supplementary-content">
       <figure class="paper-figure figure-compact">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
         <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure 7 as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
         <figcaption>Initial pose, reorientation, and target pose for each part.</figcaption>
       </figure>
         </div>
-      </details>
+      </div>
     </section>
 
-    <!-- ===== Results: 主要展示四种零件的实机视频；更多视频和图片可展开 ===== -->
+    <!-- ===== Results: 主要展示四种零件的实机视频；更多视频和图片直接展示 ===== -->
     <section class="section" id="results" data-nav="Results">
       <h2>Results</h2>
       <div class="video-grid grid-two" id="videos">
@@ -182,10 +182,10 @@
           <figcaption>Bearing2</figcaption>
         </figure>
       </div>
-      <details class="disclosure">
-        <summary>More recordings</summary>
-        <div class="disclosure-content">
-          <h3>Nut</h3>
+      <div class="supplementary-block">
+        <h3 class="supplementary-heading">More recordings</h3>
+        <div class="supplementary-content">
+          <h4>Nut</h4>
           <div class="video-grid grid-three">
         <figure class="video-card">
           <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
@@ -223,7 +223,7 @@
           <figcaption>Nut · Clip 6</figcaption>
         </figure>
           </div>
-          <h3>Multi-view recordings</h3>
+          <h4>Multi-view recordings</h4>
           <div class="video-grid grid-two">
         <figure class="video-card">
           <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
@@ -240,7 +240,7 @@
           <figcaption>Nut · Multi-view recording 2</figcaption>
         </figure>
           </div>
-          <h3>Simulation recordings</h3>
+          <h4>Simulation recordings</h4>
           <div class="video-grid grid-two">
         <figure class="video-card">
           <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
@@ -258,27 +258,27 @@
         </figure>
           </div>
         </div>
-      </details>
+      </div>
       <!-- 综合介绍视频准备好后，可在这里增加 video 或使用以下嵌入示例 -->
       <!-- <div class="embed-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DRIA overview" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div> -->
       <!-- <div class="embed-frame"><iframe src="https://player.bilibili.com/player.html?bvid=BV_ID" title="DRIA overview" loading="lazy" allowfullscreen></iframe></div> -->
       <!-- 论文展示图保留在这里；本节只展示视频和图片，不列数字结果 -->
-      <details class="disclosure">
-        <summary>Additional experiment figures</summary>
-        <div class="disclosure-content">
+      <div class="supplementary-block">
+        <h3 class="supplementary-heading">Additional experiment figures</h3>
+        <div class="supplementary-content">
 <figure class="paper-figure ">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
         <a href="static/images/Figure_8.pdf" target="_blank" rel="noopener" aria-label="Open Figure 8 as a PDF"><img src="static/images/result-01.png" width="2401" height="1612" alt="Physical in-hand reorientation trajectories exposing the target ROIs" loading="lazy" decoding="async"></a>
         <figcaption>Real-world reorientation of Carriage, Bearing1, and Bearing2.</figcaption>
       </figure>
 
-          <h3>Simulation and real-world trajectories</h3>
+          <h4>Simulation and real-world trajectories</h4>
       <figure class="paper-figure ">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
         <a href="static/images/Figure_9.pdf" target="_blank" rel="noopener" aria-label="Open Figure 9 as a PDF"><img src="static/images/result-02.png" width="2400" height="960" alt="Nut reorientation across simulation and real-world policies" loading="lazy" decoding="async"></a>
         <figcaption>Nut trajectories from the simulation teacher, simulation student, and real-world student.</figcaption>
       </figure>
-          <h3>Target ROI localization</h3>
+          <h4>Target ROI localization</h4>
       <figure class="paper-figure ">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
         <a href="static/images/Figure_10.pdf" target="_blank" rel="noopener" aria-label="Open Figure 10 as a PDF"><img src="static/images/result-04.png" width="2400" height="665" alt="Target ROI localization for all four parts" loading="lazy" decoding="async"></a>
@@ -286,7 +286,7 @@
       </figure>
           <p class="figure-note">The detector evaluates acquired images and does not control the hand. Reliable rejection of absent ROIs remains unresolved.</p>
         </div>
-      </details>
+      </div>
     </section>
 
     <!-- ===== BibTeX: 保持隐藏，正式公开引用信息后再启用 ===== -->
@@ -302,11 +302,11 @@
 
     </section>
 
-    <!-- ===== Acknowledgements: 基金信息保留在可展开区域 ===== -->
-    <details class="disclosure acknowledgements" id="acknowledgements">
-      <summary>Acknowledgements</summary>
-      <div class="disclosure-content"><p>This work was supported in part by the National Science and Technology Major Project on Intelligent Manufacturing Systems and Robots (Grant No. 2025ZD1603003); and in part by the National Natural Science Foundation of China under Grant 62373160, Grant 62503184, and Grant T2525012.</p></div>
-    </details>
+    <!-- ===== Acknowledgements: 基金信息直接展示 ===== -->
+    <div class="supplementary-block acknowledgements" id="acknowledgements">
+      <h3 class="supplementary-heading">Acknowledgements</h3>
+      <div class="supplementary-content"><p>This work was supported in part by the National Science and Technology Major Project on Intelligent Manufacturing Systems and Robots (Grant No. 2025ZD1603003); and in part by the National Natural Science Foundation of China under Grant 62373160, Grant 62503184, and Grant T2525012.</p></div>
+    </div>
   </main>
   <!-- ===== Footer: 模板来源与许可 ===== -->
   <footer class="site-footer"><div class="container">

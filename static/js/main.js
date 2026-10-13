@@ -164,17 +164,6 @@
     });
   });
 
-  /* ===== Native disclosures: pause recordings when the panel closes ===== */
-  document.querySelectorAll('details').forEach(panel => {
-    panel.addEventListener('toggle', () => {
-      if (panel.open) return;
-      panel.querySelectorAll('video').forEach(video => {
-        inView.delete(video);
-        video.pause();
-      });
-    });
-  });
-
   /* ===== Optional logo ===== */
   document.querySelectorAll('img[data-optional-logo]').forEach(img => {
     img.addEventListener('load', () => { img.hidden = false; });
