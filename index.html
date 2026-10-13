@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="DRIA: Dexterous In-Hand Reorientation for Target ROI Image Acquisition of Complex-Shaped Industrial Parts">
   <meta name="twitter:description" content="A dexterous hand reorients industrial parts in hand to expose occluded target ROIs to fixed RGB cameras.">
   <meta name="twitter:image" content="https://sunxin010203.github.io/DRIA/static/images/method.png">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ede9ff">
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-shell"><a class="nav-brand" href="#top">DRIA</a>
       <div class="nav-inner" id="section-nav">
-        <a href="#videos">Videos</a><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#setup">Setup</a><a href="#results">Experiments</a>
+        <a href="#abstract">Abstract</a><a href="#contributions">Contributions</a><a href="#method">Method</a><a href="#setup">Setup</a><a href="#results">Results</a>
       </div>
     </div>
   </nav>
@@ -65,14 +65,94 @@
       <!-- 论文公开后将禁用 button 改为 a class="button" href="真实论文链接" -->
       <button class="button button-disabled" type="button" disabled><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Paper (Coming Soon)</button>
       <button class="button button-disabled" type="button" disabled><i class="fa-brands fa-github" aria-hidden="true"></i> Code (TBD)</button>
-      <a class="button" href="#videos"><i class="fa-solid fa-film" aria-hidden="true"></i> Video</a>
+      <a class="button" href="#results"><i class="fa-solid fa-film" aria-hidden="true"></i> Video</a>
       <a class="button" href="#bibtex" hidden><i class="fa-solid fa-quote-right" aria-hidden="true"></i> BibTeX</a>
     </div>
 
-    <!-- ===== Videos: 四种零件的实机展示；更多已有视频放在折叠区域 ===== -->
-    <section class="section section-videos" id="videos" data-nav="Videos">
-      <h2>Real-World Demonstrations</h2>
-      <div class="video-grid grid-two">
+    <!-- ===== Abstract: 在这里替换简短项目摘要 ===== -->
+    <section class="section" id="abstract" data-nav="Abstract">
+      <h2>Abstract</h2>
+      <p class="abstract-text">Visual inspection of industrial parts often requires views of regions hidden from fixed cameras, including internal threads, rail grooves, and bearing bores. <strong>DRIA</strong> uses a dexterous hand to reorient a grasped part and expose its target region of interest. A privileged reinforcement-learning teacher generates demonstrations in simulation, which train a multi-view vision-conditioned diffusion policy. The frozen student policy transfers to the real hand using RGB observations and lightweight background alignment, without real-world demonstrations, depth sensing, object-pose estimation, or policy fine-tuning. Experiments on four industrial parts demonstrate this approach to active part presentation for visual inspection.</p>
+    </section>
+
+    <!-- ===== Contributions: 在这里修改三条简短贡献说明 ===== -->
+    <section class="section" id="contributions" data-nav="Contributions">
+      <h2>Contributions</h2>
+      <ul class="contribution-list">
+        <li><strong>Active part presentation.</strong> Reorient industrial parts in hand to expose target ROIs to fixed cameras.</li>
+        <li><strong>Simulation-only learning.</strong> Use privileged RL teacher trajectories to train a vision-conditioned diffusion policy.</li>
+        <li><strong>RGB-based deployment.</strong> Transfer the frozen student policy to a real hand without real-world demonstrations or policy fine-tuning.</li>
+      </ul>
+    </section>
+
+    <!-- ===== Method: 方法主图与简短说明；研究动机图可展开 ===== -->
+    <section class="section" id="method" data-nav="Method">
+      <h2>Method</h2>
+      <figure class="paper-figure ">
+        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
+        <a href="static/images/Figure_2.pdf" target="_blank" rel="noopener" aria-label="Open Figure 2 as a PDF"><img src="static/images/method.png" width="2400" height="1017" alt="DRIA teacher–student pipeline for in-hand part reorientation" loading="lazy" decoding="async"></a>
+        <figcaption>Simulation teacher → vision–action demonstrations → RGB-conditioned student policy.</figcaption>
+      </figure>
+      <p class="section-description">A privileged teacher learns in-hand reorientation in simulation. Its successful trajectories train a diffusion policy, which controls the real hand from three fixed RGB cameras.</p>
+      <details class="disclosure">
+        <summary>Research motivation</summary>
+        <div class="disclosure-content">
+      <figure class="paper-figure ">
+        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
+        <a href="static/images/Figure_1.pdf" target="_blank" rel="noopener" aria-label="Open Figure 1 as a PDF"><img src="static/images/fig1_motivation.png" width="2400" height="890" alt="Inspection methods and the proposed DRIA framework" loading="lazy" decoding="async"></a>
+        <figcaption>Fixed-view inspection, learning-based methods, and active in-hand part presentation.</figcaption>
+      </figure>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===== Parts & Experimental Setup: 零件图统一画布和显示高度，保持原始比例 ===== -->
+    <section class="section" id="setup" data-nav="Setup">
+      <h2>Parts &amp; Experimental Setup</h2>
+      <div class="part-grid">
+        <figure class="part-card">
+          <!-- 在这里替换 Nut 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
+          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/nut.png" width="800" height="600" alt="Nut industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Nut</strong><span>Internal thread</span></figcaption>
+        </figure>
+        <figure class="part-card">
+          <!-- 在这里替换 Carriage 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
+          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/carriage.png" width="800" height="600" alt="Carriage industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Carriage</strong><span>Rail groove</span></figcaption>
+        </figure>
+        <figure class="part-card">
+          <!-- 在这里替换 Bearing1 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
+          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing1.png" width="800" height="600" alt="Bearing1 industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Bearing1</strong><span>Bearing bore</span></figcaption>
+        </figure>
+        <figure class="part-card">
+          <!-- 在这里替换 Bearing2 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
+          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing2.png" width="800" height="600" alt="Bearing2 industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Bearing2</strong><span>Bearing bore</span></figcaption>
+        </figure>
+
+      </div>
+      <figure class="paper-figure figure-compact">
+        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
+        <a href="static/images/Figure_6.pdf" target="_blank" rel="noopener" aria-label="Open Figure 6 as a PDF"><img src="static/images/fig6_setup.png" width="2361" height="2400" alt="Physical inspection cell with a dexterous hand and three fixed RGB cameras" loading="lazy" decoding="async"></a>
+        <figcaption>A GX11 dexterous hand and three fixed RGB cameras.</figcaption>
+      </figure>
+      <details class="disclosure">
+        <summary>Target poses</summary>
+        <div class="disclosure-content">
+      <figure class="paper-figure figure-compact">
+        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
+        <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure 7 as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
+        <figcaption>Initial pose, reorientation, and target pose for each part.</figcaption>
+      </figure>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===== Results: 主要展示四种零件的实机视频；更多视频和图片可展开 ===== -->
+    <section class="section" id="results" data-nav="Results">
+      <h2>Results</h2>
+      <div class="video-grid grid-two" id="videos">
         <figure class="video-card">
           <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
           <div class="video-slot">
@@ -182,89 +262,16 @@
       <!-- 综合介绍视频准备好后，可在这里增加 video 或使用以下嵌入示例 -->
       <!-- <div class="embed-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DRIA overview" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div> -->
       <!-- <div class="embed-frame"><iframe src="https://player.bilibili.com/player.html?bvid=BV_ID" title="DRIA overview" loading="lazy" allowfullscreen></iframe></div> -->
-    </section>
-
-    <!-- ===== Abstract: 在这里替换简短项目摘要 ===== -->
-    <section class="section" id="abstract" data-nav="Abstract">
-      <h2>Abstract</h2>
-      <p class="abstract-text">Visual inspection of industrial parts often requires views of regions hidden from fixed cameras, including internal threads, rail grooves, and bearing bores. <strong>DRIA</strong> uses a dexterous hand to reorient a grasped part and expose its target region of interest. A privileged reinforcement-learning teacher generates demonstrations in simulation, which train a multi-view vision-conditioned diffusion policy. The frozen student policy transfers to the real hand using RGB observations and lightweight background alignment, without real-world demonstrations, depth sensing, object-pose estimation, or policy fine-tuning. Experiments on four industrial parts demonstrate this approach to active part presentation for visual inspection.</p>
-    </section>
-
-    <!-- ===== Method: 方法主图与简短说明；研究动机图可展开 ===== -->
-    <section class="section" id="method" data-nav="Method">
-      <h2>Method</h2>
-      <figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_2.pdf" target="_blank" rel="noopener" aria-label="Open Figure 2 as a PDF"><img src="static/images/method.png" width="2400" height="1017" alt="DRIA teacher–student pipeline for in-hand part reorientation" loading="lazy" decoding="async"></a>
-        <figcaption>Simulation teacher → vision–action demonstrations → RGB-conditioned student policy.</figcaption>
-      </figure>
-      <p class="section-description">A privileged teacher learns in-hand reorientation in simulation. Its successful trajectories train a diffusion policy, which controls the real hand from three fixed RGB cameras.</p>
+      <!-- 论文展示图保留在这里；本节只展示视频和图片，不列数字结果 -->
       <details class="disclosure">
-        <summary>Research motivation</summary>
+        <summary>Additional experiment figures</summary>
         <div class="disclosure-content">
-      <figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_1.pdf" target="_blank" rel="noopener" aria-label="Open Figure 1 as a PDF"><img src="static/images/fig1_motivation.png" width="2400" height="890" alt="Inspection methods and the proposed DRIA framework" loading="lazy" decoding="async"></a>
-        <figcaption>Fixed-view inspection, learning-based methods, and active in-hand part presentation.</figcaption>
-      </figure>
-        </div>
-      </details>
-    </section>
-
-    <!-- ===== Setup: 四种零件与真实实验装置 ===== -->
-    <section class="section" id="setup" data-nav="Setup">
-      <h2>Parts &amp; Experimental Setup</h2>
-      <div class="part-grid">
-        <figure class="part-card">
-          <!-- 在这里替换 Nut 零件图片；当前图片裁自 Parts_ROIs.pdf -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/nut.png" width="1200" height="601" alt="Nut with its target ROI highlighted in orange" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Nut</strong><span>Internal thread</span></figcaption>
-        </figure>
-        <figure class="part-card">
-          <!-- 在这里替换 Carriage 零件图片；当前图片裁自 Parts_ROIs.pdf -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/carriage.png" width="1200" height="601" alt="Carriage with its target ROI highlighted in orange" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Carriage</strong><span>Rail groove</span></figcaption>
-        </figure>
-        <figure class="part-card">
-          <!-- 在这里替换 Bearing1 零件图片；当前图片裁自 Parts_ROIs.pdf -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing1.png" width="1200" height="601" alt="Bearing1 with its target ROI highlighted in orange" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Bearing1</strong><span>Bearing bore</span></figcaption>
-        </figure>
-        <figure class="part-card">
-          <!-- 在这里替换 Bearing2 零件图片；当前图片裁自 Parts_ROIs.pdf -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing2.png" width="1200" height="601" alt="Bearing2 with its target ROI highlighted in orange" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Bearing2</strong><span>Bearing bore</span></figcaption>
-        </figure>
-
-      </div>
-      <figure class="paper-figure figure-compact">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_6.pdf" target="_blank" rel="noopener" aria-label="Open Figure 6 as a PDF"><img src="static/images/fig6_setup.png" width="2361" height="2400" alt="Physical inspection cell with a dexterous hand and three fixed RGB cameras" loading="lazy" decoding="async"></a>
-        <figcaption>A GX11 dexterous hand and three fixed RGB cameras.</figcaption>
-      </figure>
-      <details class="disclosure">
-        <summary>Target poses</summary>
-        <div class="disclosure-content">
-      <figure class="paper-figure figure-compact">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure 7 as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
-        <figcaption>Initial pose, reorientation, and target pose for each part.</figcaption>
-      </figure>
-        </div>
-      </details>
-    </section>
-
-    <!-- ===== Experiments: 保留直观展示图；详细统计结果已移出页面 ===== -->
-    <section class="section" id="results" data-nav="Experiments">
-      <h2>In-Hand Reorientation</h2>
-      <figure class="paper-figure ">
+<figure class="paper-figure ">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
         <a href="static/images/Figure_8.pdf" target="_blank" rel="noopener" aria-label="Open Figure 8 as a PDF"><img src="static/images/result-01.png" width="2401" height="1612" alt="Physical in-hand reorientation trajectories exposing the target ROIs" loading="lazy" decoding="async"></a>
         <figcaption>Real-world reorientation of Carriage, Bearing1, and Bearing2.</figcaption>
       </figure>
-      <details class="disclosure">
-        <summary>Additional experiment figures</summary>
-        <div class="disclosure-content">
+
           <h3>Simulation and real-world trajectories</h3>
       <figure class="paper-figure ">
         <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
@@ -282,7 +289,7 @@
       </details>
     </section>
 
-    <!-- ===== BibTeX: 保持隐藏；正式公开引用信息后移除本节及按钮的 hidden ===== -->
+    <!-- ===== BibTeX: 保持隐藏，正式公开引用信息后再启用 ===== -->
     <section class="section" id="bibtex" data-nav="BibTeX" hidden>
 <h2>BibTeX</h2>
       <!-- 暂按未发表稿件引用；正式发表后替换类型、年份、期刊/会议、DOI 等 -->

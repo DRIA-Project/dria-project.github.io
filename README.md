@@ -1,6 +1,6 @@
 # DRIA project page
 
-A static academic project page with HTML, CSS, and native JavaScript. The current design uses a white background, a centered column, and demonstrations before the text. News, keyword tags, metric cards, the teaser text, detailed result tables, and long explanatory sections were removed at the author’s request.
+A static academic project page with HTML, CSS, and native JavaScript. The current design keeps the original soft purple palette and a centered column, ordered as Abstract → Contributions → Method → Parts & Experimental Setup → Results. News, keyword tags, metric cards, the teaser text, detailed result tables, and long explanatory sections were removed at the author’s request.
 
 ### Preview and publication
 
@@ -20,11 +20,11 @@ Content is written directly in `index.html`, separated by `<!-- ===== Section ==
 | --- | --- |
 | Header | Full title, nine authors, author homepage links, four affiliations, corresponding-author email, and journal status |
 | Project Links | Paper link when public; Code remains **TBD**; Video points to the demonstrations |
-| Videos | Four featured physical clips in the order Nut, Carriage, Bearing1, Bearing2; **More recordings** contains the remaining nine supplied clips |
+| Results | Four featured physical clips in the order Nut, Carriage, Bearing1, Bearing2; **More recordings** contains the remaining nine clips; **Additional experiment figures** expands Fig. 8/9/10 |
 | Abstract | A brief project summary without a numerical result list |
+| Contributions | Three short points: active part presentation, simulation-only learning, and RGB-based deployment |
 | Method | Fig. 2 and two short sentences; **Research motivation** expands Fig. 1 |
-| Setup | Four ROI-annotated part illustrations and Fig. 6; **Target poses** expands Fig. 7 |
-| Experiments | Fig. 8; **Additional experiment figures** expands Fig. 9 and Fig. 10 |
+| Parts & Experimental Setup | Four equally scaled part illustrations, ROI labels, and Fig. 6; **Target poses** expands Fig. 7 |
 | Acknowledgements | Supplied funding text in an expandable panel |
 | BibTeX | Preserved with `hidden`; update the unpublished entry before making it public |
 
@@ -34,7 +34,7 @@ To release Paper or Code, replace its disabled `<button>` with `<a class="button
 
 ### Layout and media
 
-Edit colors, font, and column width in `:root` at the top of `static/css/style.css`. The default content width is 1000px, with white sections, simple dark resource buttons, and no decorative result cards. All video grids become one column below 700px; part illustrations use two columns on phones.
+Edit colors, font, and column width in `:root` at the top of `static/css/style.css`. The default content width is 1000px, with the original lavender `#ede9ff` and purple accent `#5941a9`, lightly tinted section backgrounds, and dark resource buttons. Results contains videos and optional figures, with no numeric result tables or metric cards. All video grids become one column below 700px; part illustrations use two columns on phones. Each part PNG is 800×600 with the extracted part normalized to a 440px display height, centered without stretching. The crops use the original image embedded in `Parts_ROIs.pdf`; surrounding text and arrows are omitted from the cards, and the full ROI diagram remains available by clicking an image.
 
 `<details>` / `<summary>` panels work without JavaScript. Remove a whole section to omit it, or add `hidden`. Native JavaScript generates navigation from visible top-level `section[id]` elements, tracks the active link, and supports smooth scrolling. `data-nav` controls the short navigation label.
 
@@ -52,9 +52,9 @@ The hidden BibTeX has a Copy button and direct-file clipboard fallback. Once pub
 | `static/images/fig6_setup.png`, `Figure_6.pdf` | Physical inspection cell |
 | `static/images/fig7_tasks.png`, `Figure_7.pdf` | Target poses (expandable) |
 | `static/images/Parts_ROIs.pdf` | Original supplied `论文图片.pdf`, containing all four part/ROI illustrations |
-| `static/images/parts/{nut,carriage,bearing1,bearing2}.png` | Cropped from the supplied part/ROI diagram, retaining ROI annotations |
+| `static/images/parts/{nut,carriage,bearing1,bearing2}.png` | Extracted from the original part image in the supplied PDF; equal 800×600 canvases and 440px part heights |
 | `static/images/method.png`, `Figure_2.pdf` | Method overview |
-| `static/images/result-01.png`, `Figure_8.pdf` | Experiments: physical trajectories |
+| `static/images/result-01.png`, `Figure_8.pdf` | Results: additional experiment figures (expandable) |
 | `static/images/result-02.png`, `Figure_9.pdf` | Additional experiment figures (expandable) |
 | `static/images/result-04.png`, `Figure_10.pdf` | Additional experiment figures: ROI localization (expandable) |
 | `static/images/detection/{nut,carriage,bearing1,bearing2}.png` | Four panels derived from supplied Fig. 10 |
