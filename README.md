@@ -6,11 +6,11 @@ A static academic project page with HTML, CSS, and native JavaScript. The curren
 
 Double-click `index.html` for a local preview, or run `python3 -m http.server 8000` in this folder and open `http://localhost:8000`.
 
-- Current website: https://sunxin010203.github.io/DRIA/
-- Original archived website: https://sunxin010203.github.io/DRIA/versions/before-polish/
-- Repository: https://github.com/sunxin010203/DRIA
+- Current website: https://dria-project.github.io/
+- Original archived website: https://dria-project.github.io/versions/before-polish/
+- Repository: https://github.com/DRIA-Project/dria-project.github.io
 
-Pages uses **Settings → Pages → Deploy from a branch → main → / (root)**. The `.nojekyll` file is included. Edit `index.html` using GitHub’s **Edit** button and commit, or edit the local deployment repository `/home/sx/Downloads/DRIA-website` and push to `main`. Pages publishes updates automatically. The original archive in `versions/before-polish/` has independent assets and a `SHA256SUMS` file; current edits do not change it. Earlier current-page layouts remain available in Git history, including commit `72d79fb` before the simplification.
+Pages uses **Settings → Pages → Deploy from a branch → main → / (root)**. The `.nojekyll` file is included. Edit `index.html` using GitHub’s **Edit** button and commit, or edit the local deployment repository `/home/sx/Downloads/DRIA-website` and push to `main`. Pages publishes updates automatically. The publishing repository belongs to the `DRIA-Project` organization, so the public URL contains the project name instead of the personal account name. The original archive in `versions/before-polish/` has independent assets and a `SHA256SUMS` file; current edits do not change it. Earlier current-page layouts remain available in Git history, including commit `72d79fb` before the simplification.
 
 ### Edit the page
 
