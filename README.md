@@ -1,6 +1,6 @@
 # DRIA project page
 
-A pure static project page built with HTML, CSS, and native JavaScript. The fluid layout spans the browser width with modest side margins and keeps the original soft purple palette: Abstract and Method share an aligned two-column row, followed by a larger Presentation Video. Industrial Parts, Experimental Setup, and Target poses share a three-column row. Results contains thirteen experimental recordings, including nine physical videos in a uniform 3×3 grid, followed by three experiment figures in one row.
+A pure static project page built with HTML, CSS, and native JavaScript. Abstract/Method and Additional Experiment Figures span the browser width with modest side margins; the other groups retain their centered, compact widths. The original soft purple palette is retained. A Presentation Video follows Abstract/Method. Industrial Parts, Experimental Setup, and Target poses share a three-column row. Results contains thirteen experimental recordings, including nine physical videos in a uniform 3×3 grid, followed by three experiment figures in one row.
 
 ### Preview and publication
 
@@ -23,10 +23,10 @@ Content is written directly in `index.html`, separated by `<!-- ===== Section ==
 | Header | Full paper title and optional logo; author, institution, email, and journal information are omitted |
 | Project Links | Paper link when public; Code remains **TBD**; Video scrolls to Presentation Video |
 | Abstract & Method | Equal-width/equal-height panels on desktop; abstract, Fig. 2, and brief method text |
-| Presentation Video | Original three-minute overview below Abstract/Method and above Setup; original audio and opening-title poster; the full content width |
+| Presentation Video | Original three-minute overview below Abstract/Method and above Setup; original audio and opening-title poster; up to 900px wide |
 | Industrial Parts & Experimental Setup | Three aligned columns: four equally scaled parts in a 2×2 grid, Fig. 6 setup, and Fig. 7 target poses |
 | Results: Real-world Reorientation | Nine physical videos: Carriage/Bearing1/Bearing2, followed by two rows of three Nut clips |
-| Results: Different Initial Positions / Simulation | Two Nut recordings with different initial positions and two RL/student simulation comparisons, each group using the full content width with two columns |
+| Results: Different Initial Positions / Simulation | Two Nut recordings with different initial positions and two RL/student simulation comparisons, each group up to 900px wide with two columns |
 | Additional Experiment Figures | Fig. 8/9/10 in one aligned three-column row |
 | BibTeX | Preserved with `hidden`; update the unpublished entry before making it public |
 
@@ -36,7 +36,7 @@ To release Paper or Code, replace its disabled `<button>` with `<a class="button
 
 ### Layout, fonts, and media
 
-Edit `:root` at the top of `static/css/style.css`. The content uses the browser width minus `--page-gutter` on each side (24–48px on desktop, 16px on phones); the original lavender `#ede9ff` and purple accent `#5941a9` are retained. Body text and captions share **14px**, with 22px section headings. Setup and target-pose images fit the three aligned panels. Presentation Video, comparison video groups, and the physical grid span the full content width. Each column grows with the viewport, including the setup and experiment images.
+Edit `:root` at the top of `static/css/style.css`. Only Abstract/Method and Additional Experiment Figures use the browser width minus `--page-gutter` on each side (24–48px on desktop, 16px on phones). Header, navigation, setup, and video groups retain a centered 1000px column; Presentation Video and video grids are capped at 900px. Setup and target-pose images are capped at 340px. The original lavender `#ede9ff` and purple accent `#5941a9` are retained. Body text and captions share **14px**, with 22px section headings.
 
 Below 700px, paired panels and video grids stack into one column; the four part cards remain two columns. Part PNGs retain equal 800×600 canvases and equal 440px part heights, centered without stretching. Source files are unchanged.
 
