@@ -39,7 +39,7 @@ Edit colors, font, and column width in `:root` at the top of `static/css/style.c
 
 Research motivation, target poses, additional recordings and experiment figures, and acknowledgements are ordinary HTML blocks displayed directly; there are no disclosure controls. Remove a whole section to omit it, or add `hidden`. Native JavaScript generates navigation from visible top-level `section[id]` elements, tracks the active link, and supports smooth scrolling. `data-nav` controls the short navigation label.
 
-Videos use `<video autoplay muted loop playsinline controls preload="none" data-src="…" poster="…">`. Replace `data-src`, `poster`, and the short caption together. Sources are attached on entering the viewport, playback pauses outside the viewport or in a background tab, and reduced-motion visitors can play manually. Original aspect ratios are preserved with `object-fit: contain`. Keep method and outcome labels faithful to the footage.
+Videos use `<video autoplay muted loop playsinline controls preload="none" data-src="…" poster="…">`. Replace `data-src`, `poster`, and the short caption together. Sources are attached on entering the viewport, playback pauses outside the viewport or in a background tab, and reduced-motion visitors can play manually. Players use `width: 100%; height: auto` to follow each video's original aspect ratio, including square and 4:3 recordings, without adding side bars or cropping the footage. Keep method and outcome labels faithful to the footage.
 
 The project overview retains its original audio. It starts muted for browser autoplay compatibility; visitors can enable sound, seek, or enter fullscreen using the player controls. Its poster is the opening title slide.
 
@@ -66,7 +66,7 @@ The hidden BibTeX has a Copy button and direct-file clipboard fallback. Once pub
 | `static/videos/2048929961.mp4` | Carriage physical recording |
 | `static/videos/374234212.mp4` | Bearing1 physical recording |
 | `static/videos/288632057.mp4` | Bearing2 physical recording |
-| `static/videos/166289621.mp4`, `1147201446.mp4` | Nut multi-view deployment overview |
+| `static/videos/166289621.mp4`, `1147201446.mp4` | Nut multi-view deployment overview; empty side bars removed (632×640), with matching posters |
 | `static/videos/1001628895.mp4`, `1225127581.mp4` | Nut RL / student policy simulation comparisons |
 | `static/images/video-posters/{numeric_filename}.jpg` | Real posters for supplied clips |
 
