@@ -26,7 +26,7 @@ Content is written directly in `index.html`, separated by `<!-- ===== Section ==
 | Presentation Video | Original three-minute overview below Abstract/Method and above Setup; original audio and opening-title poster; up to 900px wide |
 | Parts & Experimental Setup | Three aligned columns: four equally scaled parts in a 2×2 grid, Fig. 6 setup, and Fig. 7 target poses |
 | Results: Real-world Reorientation | Nine physical videos: Carriage/Bearing1/Bearing2, followed by two rows of three Nut clips |
-| Results: Multi-view / Simulation | Two multi-view recordings and two RL/student simulation comparisons, each group up to 900px wide with two columns |
+| Results: Different Initial Positions / Simulation | Two Nut recordings with different initial positions and two RL/student simulation comparisons, each group up to 900px wide with two columns |
 | Additional Experiment Figures | Fig. 8/9/10 in one aligned three-column row |
 | BibTeX | Preserved with `hidden`; update the unpublished entry before making it public |
 
@@ -44,7 +44,7 @@ The figure gallery aligns all three cards and captions in one row, caps images a
 
 Videos use `<video autoplay muted loop playsinline controls preload="none" data-src="…" poster="…">`. Replace `data-src`, `poster`, and the caption together. Sources load upon entering the viewport; playback pauses outside the viewport or in a background tab. Reduced-motion visitors can play manually.
 
-Physical videos use square players with `object-fit: cover`, centered to trim surrounding background and align all nine cards. The MP4 files themselves are preserved. To adjust the framing of one card, add `style="--video-position: 55% 50%"` to its `video-slot`. Native fullscreen uses `object-fit: contain` to show the full frame. Other groups use their original aspect ratios. The two multi-view source videos have already had their empty side bars removed.
+Physical videos use square players with `object-fit: cover`, centered to trim surrounding background and align all nine cards. The MP4 files themselves are preserved. To adjust the framing of one card, add `style="--video-position: 55% 50%"` to its `video-slot`. Native fullscreen uses `object-fit: contain` to show the full frame. Other groups use their original aspect ratios. The two Nut initial-position videos have already had their empty side bars removed.
 
 The overview retains its original audio and starts muted. Visitors can enable sound, seek, or enter fullscreen using the native player controls.
 
@@ -68,7 +68,7 @@ The optional logo is hidden: add `static/images/logo.png` and remove `data-place
 | `static/videos/2048929961.mp4` | Carriage physical recording |
 | `static/videos/374234212.mp4` | Bearing1 physical recording |
 | `static/videos/288632057.mp4` | Bearing2 physical recording |
-| `static/videos/166289621.mp4`, `1147201446.mp4` | Nut multi-view recordings, empty side bars removed (632×640) |
+| `static/videos/166289621.mp4`, `1147201446.mp4` | Nut initial positions 1 and 2 respectively; empty side bars removed (632×640) |
 | `static/videos/1001628895.mp4`, `1225127581.mp4` | Nut RL/student simulation comparisons |
 | `static/images/video-posters/{numeric_filename}.jpg` | Real posters for every supplied video |
 
