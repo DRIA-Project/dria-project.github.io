@@ -1,6 +1,6 @@
 # DRIA project page
 
-A pure static project page built with HTML, CSS, and native JavaScript. The compact layout keeps the original soft purple palette: Abstract and Method share an aligned two-column row; Parts and Experimental Setup share another; all fourteen videos appear together in Results. The nine physical recordings form a smaller, uniform 3×3 grid on desktop.
+A pure static project page built with HTML, CSS, and native JavaScript. The compact layout keeps the original soft purple palette: Abstract and Method share an aligned two-column row, followed by a larger Presentation Video. Parts, Experimental Setup, and Target poses share a three-column row. Results contains thirteen experimental recordings, including nine physical videos in a uniform 3×3 grid, followed by three experiment figures in one row.
 
 ### Preview and publication
 
@@ -21,13 +21,13 @@ Content is written directly in `index.html`, separated by `<!-- ===== Section ==
 | Location | What to edit |
 | --- | --- |
 | Header | Full paper title and optional logo; author, institution, email, and journal information are omitted |
-| Project Links | Paper link when public; Code remains **TBD**; Video scrolls to the overview within Results |
+| Project Links | Paper link when public; Code remains **TBD**; Video scrolls to Presentation Video |
 | Abstract & Method | Equal-width/equal-height panels on desktop; abstract, Fig. 2, and brief method text |
-| Parts & Experimental Setup | Left: four equally scaled parts in a 2×2 grid. Right: smaller Fig. 6. Panel edges and headings align |
-| Results: Project Overview | Original three-minute video, with audio and opening-title poster, displayed at up to 640px wide |
+| Presentation Video | Original three-minute overview below Abstract/Method and above Setup; original audio and opening-title poster; up to 900px wide |
+| Parts & Experimental Setup | Three aligned columns: four equally scaled parts in a 2×2 grid, Fig. 6 setup, and Fig. 7 target poses |
 | Results: Real-world Reorientation | Nine physical videos: Carriage/Bearing1/Bearing2, followed by two rows of three Nut clips |
-| Results: Multi-view / Simulation | Two multi-view recordings and two RL/student simulation comparisons, displayed in compact two-column groups |
-| Additional Experiment Figures | Target poses (Fig. 7) and Fig. 8/9/10, displayed directly in an aligned two-column gallery |
+| Results: Multi-view / Simulation | Two multi-view recordings and two RL/student simulation comparisons, each group up to 900px wide with two columns |
+| Additional Experiment Figures | Fig. 8/9/10 in one aligned three-column row |
 | BibTeX | Preserved with `hidden`; update the unpublished entry before making it public |
 
 Contributions, Research motivation, acknowledgements, the detector limitation note, News, numeric result tables, and metric cards are omitted. The full manuscript PDF is not published. Removing header information does not edit the supplied media or the preserved hidden citation. No disclosure controls are used: all included content is presented directly.
@@ -36,11 +36,11 @@ To release Paper or Code, replace its disabled `<button>` with `<a class="button
 
 ### Layout, fonts, and media
 
-Edit `:root` at the top of `static/css/style.css`. The content width is 1000px; the original lavender `#ede9ff` and purple accent `#5941a9` are retained. Body text and captions share **14px**, with 22px section headings. The setup image is capped at 340px, the overview at 640px, and the physical grid at 900px (about 289px per video).
+Edit `:root` at the top of `static/css/style.css`. The content width is 1000px; the original lavender `#ede9ff` and purple accent `#5941a9` are retained. Body text and captions share **14px**, with 22px section headings. Setup and target-pose images fit the three aligned panels. Presentation Video, comparison video groups, and the physical grid are capped at 900px (about 289px per physical video).
 
 Below 700px, paired panels and video grids stack into one column; the four part cards remain two columns. Part PNGs retain equal 800×600 canvases and equal 440px part heights, centered without stretching. Source files are unchanged.
 
-The figure gallery aligns each pair of cards and captions, caps images at 300px high, and follows their natural proportions. Shrinking a paper image also scales its embedded text: CSS controls website text, not lettering baked into the image. Every figure links to its original PDF for reading the full detail.
+The figure gallery aligns all three cards and captions in one row, caps images at 300px high, and follows their natural proportions. Shrinking a paper image also scales its embedded text: CSS controls website text, not lettering baked into the image. Every figure links to its original PDF for reading the full detail.
 
 Videos use `<video autoplay muted loop playsinline controls preload="none" data-src="…" poster="…">`. Replace `data-src`, `poster`, and the caption together. Sources load upon entering the viewport; playback pauses outside the viewport or in a background tab. Reduced-motion visitors can play manually.
 
@@ -56,7 +56,7 @@ The optional logo is hidden: add `static/images/logo.png` and remove `data-place
 | --- | --- |
 | `static/images/method.png`, `Figure_2.pdf` | Method overview |
 | `static/images/fig6_setup.png`, `Figure_6.pdf` | Experimental Setup panel |
-| `static/images/fig7_tasks.png`, `Figure_7.pdf` | Target poses in the experiment figure gallery |
+| `static/images/fig7_tasks.png`, `Figure_7.pdf` | Target poses in Parts & Experimental Setup |
 | `static/images/Parts_ROIs.pdf` | Original supplied `论文图片.pdf`, containing all four part/ROI illustrations |
 | `static/images/parts/{nut,carriage,bearing1,bearing2}.png` | Equal-size part cards |
 | `static/images/result-01.png`, `Figure_8.pdf` | Real-world trajectories |

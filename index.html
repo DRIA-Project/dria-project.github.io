@@ -73,7 +73,20 @@
       </section>
     </div>
 
-    <!-- ===== Parts & Experimental Setup: 左侧零件、右侧装置；等宽等高对齐 ===== -->
+    <!-- ===== Presentation Video: 在这里替换总述视频路径和封面 ===== -->
+    <div class="presentation-block" id="overview">
+      <h2>Presentation Video</h2>
+      <div class="overview-group">
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2057267258.mp4" poster="static/images/video-posters/2057267258.jpg" aria-label="DRIA presentation video"></video>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <!-- ===== Parts & Experimental Setup: 零件、装置、目标姿态三列等宽等高对齐 ===== -->
     <section class="section" id="setup" data-nav="Setup">
       <h2>Parts &amp; Experimental Setup</h2>
       <div class="setup-layout">
@@ -110,23 +123,21 @@
           <figcaption>A GX11 dexterous hand and three fixed RGB cameras.</figcaption>
         </figure>
         </div>
+        <!-- ===== Target poses: 与零件和装置并排，点击查看原始 Figure 7 ===== -->
+        <div class="setup-panel">
+          <h3>Target poses</h3>
+        <figure class="paper-figure setup-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure_7.pdf as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
+          <figcaption>Initial and target poses for the four parts.</figcaption>
+        </figure>
+        </div>
       </div>
     </section>
 
-    <!-- ===== Results: 所有视频集中在本节 ===== -->
+    <!-- ===== Results: 真机、多视角、仿真视频与三张实验图 ===== -->
     <section class="section" id="results" data-nav="Results">
       <h2>Results</h2>
-      <!-- ===== Project Overview Video: 在这里替换总述视频路径和封面 ===== -->
-      <div class="video-group overview-group">
-        <figure class="video-card" id="overview">
-          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
-          <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2057267258.mp4" poster="static/images/video-posters/2057267258.jpg" aria-label="DRIA project overview"></video>
-          </div>
-          <figcaption>Project Overview</figcaption>
-        </figure>
-      </div>
-
       <!-- ===== Physical Videos: 9 段真机视频，桌面端 3×3；裁切位置在 CSS 中调整 ===== -->
       <div class="video-group">
         <h3>Real-world Reorientation</h3>
@@ -242,15 +253,10 @@
       <!-- <div class="embed-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DRIA overview" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div> -->
       <!-- <div class="embed-frame"><iframe src="https://player.bilibili.com/player.html?bvid=BV_ID" title="DRIA overview" loading="lazy" allowfullscreen></iframe></div> -->
 
-      <!-- ===== Experiment Figures: 图片缩小为左右排列；点击查看高清原始 PDF ===== -->
+      <!-- ===== Experiment Figures: 剩余三张图排成一行；点击查看高清原始 PDF ===== -->
       <div class="experiment-block">
         <h3>Additional Experiment Figures</h3>
         <div class="figure-gallery">
-        <figure class="paper-figure experiment-figure">
-          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
-          <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure_7.pdf as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Target poses</strong>Initial and target poses for the four parts.</figcaption>
-        </figure>
         <figure class="paper-figure experiment-figure">
           <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
           <a href="static/images/Figure_8.pdf" target="_blank" rel="noopener" aria-label="Open Figure_8.pdf as a PDF"><img src="static/images/result-01.png" width="2401" height="1612" alt="Physical in-hand reorientation trajectories exposing the target ROIs" loading="lazy" decoding="async"></a>
