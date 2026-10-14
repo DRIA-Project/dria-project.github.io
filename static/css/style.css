@@ -8,7 +8,7 @@
   --color-accent-hover: #44317f;
   --color-border: #ddd8ea;
   --color-surface: #faf9fd;
-  --width-text: 1000px;
+  --page-gutter: clamp(24px, 2.5vw, 48px);
   --nav-height: 58px;
   --font-body: Inter, Arial, sans-serif;
   --font-size-body: 14px;
@@ -31,12 +31,12 @@ h3 { margin: 0 0 16px; font-size: 16px; font-weight: 600; }
 p { margin: 0 0 16px; }
 img { max-width: 100%; }
 code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-.container { width: min(var(--width-text), calc(100% - 48px)); margin-inline: auto; }
+.container { width: calc(100% - 2 * var(--page-gutter)); margin-inline: auto; }
 .skip-link { position: fixed; top: -100px; left: 12px; z-index: 100; padding: 10px 16px; background: #fff; border: 2px solid var(--color-accent); }
 .skip-link:focus { top: 10px; }
 /* ===== Navigation ===== */
 .site-nav { position: sticky; top: 0; z-index: 30; background: rgb(255 255 255 / 97%); border-bottom: 1px solid var(--color-border); }
-.nav-shell { max-width: var(--width-text); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: var(--nav-height); padding: 8px 20px; }
+.nav-shell { width: calc(100% - 2 * var(--page-gutter)); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: var(--nav-height); padding: 8px 0; }
 .nav-brand { color: var(--color-accent); font-size: 16px; font-weight: 700; text-decoration: none; flex-shrink: 0; }
 .nav-inner { display: flex; align-items: center; gap: 10px; overflow-x: auto; scrollbar-width: thin; min-width: 0; padding: 4px; }
 .nav-inner a { flex-shrink: 0; white-space: nowrap; text-decoration: none; color: var(--color-muted); padding: 5px 10px; border-radius: 999px; font-size: 13px; }
@@ -44,7 +44,7 @@ code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 /* ===== Title and resource links ===== */
 .paper-header { padding: 42px 0 14px; text-align: center; }
 .title-row { display: flex; align-items: center; justify-content: center; gap: 20px; }
-.title-row h1 { max-width: 920px; margin: 0; }
+.title-row h1 { max-width: 1400px; margin: 0; }
 .project-logo { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
 .button-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin: 6px auto 28px; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; border: 1px solid transparent; padding: 8px 16px; border-radius: 999px; background: var(--color-text); color: #fff; font-size: 13px; line-height: 1.4; text-decoration: none; }
@@ -74,13 +74,13 @@ figcaption { margin-top: 9px; text-align: center; font-size: var(--font-size-cap
 .part-card img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .part-card strong { display: block; color: var(--color-accent); font-size: var(--font-size-body); font-weight: 600; }
 .part-card span { display: block; font-size: var(--font-size-caption); }
-.setup-figure { width: min(100%, 340px); margin-inline: auto; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.setup-figure img { max-height: 340px; object-fit: contain; }
+.setup-figure { width: 100%; margin-inline: auto; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.setup-figure img { object-fit: contain; }
 /* ===== Presentation below Abstract/Method; experimental videos in Results ===== */
 .presentation-block { padding-bottom: 32px; }
 .video-group { margin: 28px 0 0; }
 .video-group h3, .experiment-block > h3 { text-align: center; }
-.overview-group { width: min(100%, 900px); margin: 0 auto; }
+.overview-group { width: 100%; margin: 0 auto; }
 .video-grid { display: grid; gap: 16px; margin: 0 auto; }
 .grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -90,12 +90,12 @@ figcaption { margin-top: 9px; text-align: center; font-size: var(--font-size-cap
 .video-slot { position: relative; display: grid; place-items: center; overflow: hidden; border-radius: 6px; background: #f0f0f0; }
 .video-slot video { display: block; width: 100%; height: auto; object-fit: contain; }
 /* 真机统一方形裁切，只影响网页显示；object-position 可微调每段视频的中心。 */
-.physical-grid { width: min(100%, 900px); gap: 16px; }
+.physical-grid { width: 100%; gap: 16px; }
 .physical-grid .video-slot { aspect-ratio: 1 / 1; }
 .physical-grid video { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: var(--video-position, 50% 50%); }
 /* 全屏查看时展示完整原始画面。 */
 .physical-grid video:fullscreen { object-fit: contain; background: #000; }
-.comparison-grid { width: min(100%, 900px); }
+.comparison-grid { width: 100%; }
 .video-slot:has(video[data-placeholder]), .video-slot.has-error { aspect-ratio: 16 / 9; }
 .video-slot.has-error video, .video-slot:has(video[data-placeholder]) video { visibility: hidden; }
 .video-card figcaption { font-size: var(--font-size-caption); color: var(--color-text); }
@@ -109,7 +109,7 @@ figcaption { margin-top: 9px; text-align: center; font-size: var(--font-size-cap
 .figure-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .experiment-figure { display: flex; flex-direction: column; padding: 14px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); }
 .experiment-figure > a { display: grid; place-items: center; flex: 1; }
-.experiment-figure img { max-height: 300px; object-fit: contain; }
+.experiment-figure img { object-fit: contain; }
 .experiment-figure figcaption { min-height: 4.8em; }
 .experiment-figure figcaption strong { display: block; font-weight: 600; color: var(--color-text); }
 /* ===== Hidden BibTeX / footer / back to top ===== */
@@ -125,9 +125,9 @@ figcaption { margin-top: 9px; text-align: center; font-size: var(--font-size-cap
 .back-to-top:hover { background: var(--color-accent-hover); color: #fff; }
 /* ===== Responsive: keep compact columns on desktop, stack on phones ===== */
 @media (max-width: 700px) {
-  :root { --nav-height: 54px; }
+  :root { --nav-height: 54px; --page-gutter: 16px; }
   .container { width: calc(100% - 32px); }
-  .nav-shell { gap: 12px; padding-inline: 12px; }
+  .nav-shell { gap: 12px; }
   .nav-inner { gap: 4px; }
   .nav-inner a { padding-inline: 8px; }
   .paper-header { padding-top: 28px; }
@@ -137,8 +137,6 @@ figcaption { margin-top: 9px; text-align: center; font-size: var(--font-size-cap
   .overview-panel { padding: 20px; }
   .grid-two, .grid-three, .grid-four, .grid-six { grid-template-columns: 1fr; }
   .video-grid { gap: 20px; }
-  .physical-grid { max-width: 360px; }
-  .comparison-grid { max-width: 360px; }
   .experiment-figure > a { height: auto; min-height: 120px; }
   .back-to-top { right: 12px; bottom: 12px; }
 }
