@@ -30,35 +30,18 @@
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
-  <!-- ===== Navigation: 导航由 JS 自动同步可见章节 ===== -->
+  <!-- ===== Navigation: 导航自动同步可见章节，支持左右并排章节 ===== -->
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-shell"><a class="nav-brand" href="#top">DRIA</a>
       <div class="nav-inner" id="section-nav">
-        <a href="#abstract">Abstract</a><a href="#contributions">Contributions</a><a href="#method">Method</a><a href="#setup">Setup</a><a href="#results">Results</a>
+        <a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#setup">Setup</a><a href="#results">Results</a>
       </div>
     </div>
   </nav>
   <main class="container" id="main">
-    <!-- ===== Header: 在这里替换标题、作者、机构、期刊与 logo ===== -->
+    <!-- ===== Header: 在这里替换论文标题；当前不展示作者、机构或期刊信息 ===== -->
     <header class="paper-header" id="paper-header">
-
-      <!-- 在这里替换论文完整标题 -->
       <div class="title-row"><img class="project-logo" data-src="static/images/logo.png" alt="DRIA project logo" data-optional-logo data-placeholder hidden><h1>DRIA: Dexterous In-Hand Reorientation for Target ROI Image Acquisition of Complex-Shaped Industrial Parts</h1></div>
-      <!-- 在这里替换作者姓名、个人主页链接和机构上标 -->
-      <p class="authors"><a href="#">Xin Sun</a><sup>1,3,4</sup>, <a href="#">Shichuang Wang</a><sup>1</sup>,
-        <a href="#">Linan Deng</a><sup>2</sup>, <a href="#">Feng Hua</a><sup>2</sup>,
-        <a href="#">Xing Liu</a><sup>2</sup>, <a href="#">Jun Cheng</a><sup>1</sup>,
-        <a href="#">Zhanpeng Yang</a><sup>1</sup>, <a href="#">Xuechun Qiao</a><sup>1</sup>,
-        <a href="#">Cheng Cheng</a><sup>1,3,4,†</sup></p>
-      <!-- 在这里替换机构名称 -->
-      <p class="affiliations"><sup>1</sup>School of Artificial Intelligence and Automation, Huazhong University of Science and Technology</p>
-      <p class="affiliations"><sup>2</sup>School of Mechanical Science and Engineering, Huazhong University of Science and Technology</p>
-      <p class="affiliations"><sup>3</sup>Belt and Road Joint Laboratory on Measurement and Control Technology, Huazhong University of Science and Technology</p>
-      <p class="affiliations"><sup>4</sup>Autonomous Intelligent Unmanned System Engineering Research Center, Ministry of Education of China, Huazhong University of Science and Technology</p>
-      <p class="affiliations"><sup>†</sup>Corresponding author: <a href="mailto:c_cheng@hust.edu.cn">c_cheng@hust.edu.cn</a></p>
-      <!-- 在这里替换期刊信息；当前为 under review，未宣称录用 -->
-      <p class="venue">Robotics and Computer-Integrated Manufacturing (under review)</p>
-
     </header>
     <!-- ===== Project Links: 在这里填入发布链接；Code 保持 TBD ===== -->
     <div class="button-row" aria-label="Project links">
@@ -69,230 +52,220 @@
       <a class="button" href="#bibtex" hidden><i class="fa-solid fa-quote-right" aria-hidden="true"></i> BibTeX</a>
     </div>
 
-    <!-- ===== Project Overview Video: 在这里替换总述视频路径、poster 封面和图注 ===== -->
-    <figure class="video-card overview-video" id="overview">
-      <div class="video-slot">
-        <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2057267258.mp4" poster="static/images/video-posters/2057267258.jpg" aria-label="DRIA project overview"></video>
-      </div>
-      <figcaption>Project Overview</figcaption>
-    </figure>
-
-    <!-- ===== Abstract: 在这里替换简短项目摘要 ===== -->
-    <section class="section" id="abstract" data-nav="Abstract">
-      <h2>Abstract</h2>
-      <p class="abstract-text">Visual inspection of industrial parts often requires views of regions hidden from fixed cameras, including internal threads, rail grooves, and bearing bores. <strong>DRIA</strong> uses a dexterous hand to reorient a grasped part and expose its target region of interest. A privileged reinforcement-learning teacher generates demonstrations in simulation, which train a multi-view vision-conditioned diffusion policy. The frozen student policy transfers to the real hand using RGB observations and lightweight background alignment, without real-world demonstrations, depth sensing, object-pose estimation, or policy fine-tuning. Experiments on four industrial parts demonstrate this approach to active part presentation for visual inspection.</p>
-    </section>
-
-    <!-- ===== Contributions: 在这里修改三条简短贡献说明 ===== -->
-    <section class="section" id="contributions" data-nav="Contributions">
-      <h2>Contributions</h2>
-      <ul class="contribution-list">
-        <li><strong>Active part presentation.</strong> Reorient industrial parts in hand to expose target ROIs to fixed cameras.</li>
-        <li><strong>Simulation-only learning.</strong> Use privileged RL teacher trajectories to train a vision-conditioned diffusion policy.</li>
-        <li><strong>RGB-based deployment.</strong> Transfer the frozen student policy to a real hand without real-world demonstrations or policy fine-tuning.</li>
-      </ul>
-    </section>
-
-    <!-- ===== Method: 方法主图与简短说明；研究动机图直接展示 ===== -->
-    <section class="section" id="method" data-nav="Method">
-      <h2>Method</h2>
-      <figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_2.pdf" target="_blank" rel="noopener" aria-label="Open Figure 2 as a PDF"><img src="static/images/method.png" width="2400" height="1017" alt="DRIA teacher–student pipeline for in-hand part reorientation" loading="lazy" decoding="async"></a>
-        <figcaption>Simulation teacher → vision–action demonstrations → RGB-conditioned student policy.</figcaption>
-      </figure>
-      <p class="section-description">A privileged teacher learns in-hand reorientation in simulation. Its successful trajectories train a diffusion policy, which controls the real hand from three fixed RGB cameras.</p>
-      <div class="supplementary-block">
-        <h3 class="supplementary-heading">Research motivation</h3>
-        <div class="supplementary-content">
-      <figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_1.pdf" target="_blank" rel="noopener" aria-label="Open Figure 1 as a PDF"><img src="static/images/fig1_motivation.png" width="2400" height="890" alt="Inspection methods and the proposed DRIA framework" loading="lazy" decoding="async"></a>
-        <figcaption>Fixed-view inspection, learning-based methods, and active in-hand part presentation.</figcaption>
-      </figure>
+    <!-- ===== Abstract & Method: 桌面端左右等宽等高，手机端自动上下排列 ===== -->
+    <div class="section-pair">
+      <!-- ===== Abstract: 在这里替换摘要 ===== -->
+      <section class="section overview-panel" id="abstract" data-nav="Abstract">
+        <h2>Abstract</h2>
+        <p class="abstract-text">Visual inspection of industrial parts often requires views of regions hidden from fixed cameras, including internal threads, rail grooves, and bearing bores. <strong>DRIA</strong> uses a dexterous hand to reorient a grasped part and expose its target region of interest. A privileged reinforcement-learning teacher generates demonstrations in simulation, which train a multi-view vision-conditioned diffusion policy. The frozen student policy transfers to the real hand using RGB observations and lightweight background alignment, without real-world demonstrations, depth sensing, object-pose estimation, or policy fine-tuning. Experiments on four industrial parts demonstrate this approach to active part presentation for visual inspection.</p>
+      </section>
+      <!-- ===== Method: 在这里替换方法主图与简短说明 ===== -->
+      <section class="section overview-panel" id="method" data-nav="Method">
+        <h2>Method</h2>
+        <div class="method-content">
+        <figure class="paper-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_2.pdf" target="_blank" rel="noopener" aria-label="Open Figure_2.pdf as a PDF"><img src="static/images/method.png" width="2400" height="1017" alt="DRIA teacher–student pipeline for in-hand part reorientation" loading="lazy" decoding="async"></a>
+          <figcaption>Simulation teacher → vision–action demonstrations → RGB-conditioned student policy.</figcaption>
+        </figure>
+          <p class="section-description">A privileged teacher learns in-hand reorientation in simulation. Its successful trajectories train a diffusion policy, which controls the real hand from three fixed RGB cameras.</p>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- ===== Parts & Experimental Setup: 零件图统一画布和显示高度，保持原始比例 ===== -->
+    <!-- ===== Parts & Experimental Setup: 左侧零件、右侧装置；等宽等高对齐 ===== -->
     <section class="section" id="setup" data-nav="Setup">
       <h2>Parts &amp; Experimental Setup</h2>
-      <div class="part-grid">
-        <figure class="part-card">
-          <!-- 在这里替换 Nut 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/nut.png" width="800" height="600" alt="Nut industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Nut</strong><span>Internal thread</span></figcaption>
+      <div class="setup-layout">
+        <div class="setup-panel">
+          <h3>Parts</h3>
+          <div class="part-grid">
+          <figure class="part-card">
+            <!-- 在这里替换 Nut 图片；四种零件保持相同画布和显示比例 -->
+            <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/nut.png" width="800" height="600" alt="Nut industrial part" loading="lazy" decoding="async"></a>
+            <figcaption><strong>Nut</strong><span>Internal thread</span></figcaption>
+          </figure>
+          <figure class="part-card">
+            <!-- 在这里替换 Carriage 图片；四种零件保持相同画布和显示比例 -->
+            <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/carriage.png" width="800" height="600" alt="Carriage industrial part" loading="lazy" decoding="async"></a>
+            <figcaption><strong>Carriage</strong><span>Rail groove</span></figcaption>
+          </figure>
+          <figure class="part-card">
+            <!-- 在这里替换 Bearing1 图片；四种零件保持相同画布和显示比例 -->
+            <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing1.png" width="800" height="600" alt="Bearing1 industrial part" loading="lazy" decoding="async"></a>
+            <figcaption><strong>Bearing1</strong><span>Bearing bore</span></figcaption>
+          </figure>
+          <figure class="part-card">
+            <!-- 在这里替换 Bearing2 图片；四种零件保持相同画布和显示比例 -->
+            <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing2.png" width="800" height="600" alt="Bearing2 industrial part" loading="lazy" decoding="async"></a>
+            <figcaption><strong>Bearing2</strong><span>Bearing bore</span></figcaption>
+          </figure>
+          </div>
+        </div>
+        <div class="setup-panel">
+          <h3>Experimental Setup</h3>
+        <figure class="paper-figure setup-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_6.pdf" target="_blank" rel="noopener" aria-label="Open Figure_6.pdf as a PDF"><img src="static/images/fig6_setup.png" width="2361" height="2400" alt="Physical inspection cell with a dexterous hand and three fixed RGB cameras" loading="lazy" decoding="async"></a>
+          <figcaption>A GX11 dexterous hand and three fixed RGB cameras.</figcaption>
         </figure>
-        <figure class="part-card">
-          <!-- 在这里替换 Carriage 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/carriage.png" width="800" height="600" alt="Carriage industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Carriage</strong><span>Rail groove</span></figcaption>
-        </figure>
-        <figure class="part-card">
-          <!-- 在这里替换 Bearing1 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing1.png" width="800" height="600" alt="Bearing1 industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Bearing1</strong><span>Bearing bore</span></figcaption>
-        </figure>
-        <figure class="part-card">
-          <!-- 在这里替换 Bearing2 零件图片；当前图片从 Parts_ROIs.pdf 原始图提取并统一显示高度 -->
-          <a href="static/images/Parts_ROIs.pdf" target="_blank" rel="noopener" aria-label="Open the original part and ROI diagram"><img src="static/images/parts/bearing2.png" width="800" height="600" alt="Bearing2 industrial part; its target ROI is labeled below" loading="lazy" decoding="async"></a>
-          <figcaption><strong>Bearing2</strong><span>Bearing bore</span></figcaption>
-        </figure>
-
-      </div>
-      <figure class="paper-figure figure-compact">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_6.pdf" target="_blank" rel="noopener" aria-label="Open Figure 6 as a PDF"><img src="static/images/fig6_setup.png" width="2361" height="2400" alt="Physical inspection cell with a dexterous hand and three fixed RGB cameras" loading="lazy" decoding="async"></a>
-        <figcaption>A GX11 dexterous hand and three fixed RGB cameras.</figcaption>
-      </figure>
-      <div class="supplementary-block">
-        <h3 class="supplementary-heading">Target poses</h3>
-        <div class="supplementary-content">
-      <figure class="paper-figure figure-compact">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure 7 as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
-        <figcaption>Initial pose, reorientation, and target pose for each part.</figcaption>
-      </figure>
         </div>
       </div>
     </section>
 
-    <!-- ===== Results: 主要展示四种零件的实机视频；更多视频和图片直接展示 ===== -->
+    <!-- ===== Results: 所有视频集中在本节 ===== -->
     <section class="section" id="results" data-nav="Results">
       <h2>Results</h2>
-      <div class="video-grid grid-two" id="videos">
-        <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+      <!-- ===== Project Overview Video: 在这里替换总述视频路径和封面 ===== -->
+      <div class="video-group overview-group">
+        <figure class="video-card" id="overview">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/1424002461.mp4" poster="static/images/video-posters/1424002461.jpg" aria-label="Nut"></video>
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2057267258.mp4" poster="static/images/video-posters/2057267258.jpg" aria-label="DRIA project overview"></video>
           </div>
-          <figcaption>Nut</figcaption>
+          <figcaption>Project Overview</figcaption>
         </figure>
+      </div>
+
+      <!-- ===== Physical Videos: 9 段真机视频，桌面端 3×3；裁切位置在 CSS 中调整 ===== -->
+      <div class="video-group">
+        <h3>Real-world Reorientation</h3>
+        <div class="video-grid grid-three physical-grid" id="videos">
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
             <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2048929961.mp4" poster="static/images/video-posters/2048929961.jpg" aria-label="Carriage"></video>
           </div>
           <figcaption>Carriage</figcaption>
         </figure>
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
             <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/374234212.mp4" poster="static/images/video-posters/374234212.jpg" aria-label="Bearing1"></video>
           </div>
           <figcaption>Bearing1</figcaption>
         </figure>
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
             <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/288632057.mp4" poster="static/images/video-posters/288632057.jpg" aria-label="Bearing2"></video>
           </div>
           <figcaption>Bearing2</figcaption>
         </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/1424002461.mp4" poster="static/images/video-posters/1424002461.jpg" aria-label="Nut · 1"></video>
+          </div>
+          <figcaption>Nut · 1</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2073040279.mp4" poster="static/images/video-posters/2073040279.jpg" aria-label="Nut · 2"></video>
+          </div>
+          <figcaption>Nut · 2</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/343415262.mp4" poster="static/images/video-posters/343415262.jpg" aria-label="Nut · 3"></video>
+          </div>
+          <figcaption>Nut · 3</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/60789955.mp4" poster="static/images/video-posters/60789955.jpg" aria-label="Nut · 4"></video>
+          </div>
+          <figcaption>Nut · 4</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/965385884.mp4" poster="static/images/video-posters/965385884.jpg" aria-label="Nut · 5"></video>
+          </div>
+          <figcaption>Nut · 5</figcaption>
+        </figure>
+        <figure class="video-card">
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
+          <div class="video-slot">
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/997680083.mp4" poster="static/images/video-posters/997680083.jpg" aria-label="Nut · 6"></video>
+          </div>
+          <figcaption>Nut · 6</figcaption>
+        </figure>
+        </div>
       </div>
-      <div class="supplementary-block">
-        <h3 class="supplementary-heading">More recordings</h3>
-        <div class="supplementary-content">
-          <h4>Nut</h4>
-          <div class="video-grid grid-three">
+
+      <!-- ===== Multi-view Videos: 在这里替换两段多视角视频 ===== -->
+      <div class="video-group">
+        <h3>Multi-view Recordings</h3>
+        <div class="video-grid grid-two comparison-grid">
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/2073040279.mp4" poster="static/images/video-posters/2073040279.jpg" aria-label="Nut · Clip 2"></video>
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/166289621.mp4" poster="static/images/video-posters/166289621.jpg" aria-label="Nut · Multi-view 1"></video>
           </div>
-          <figcaption>Nut · Clip 2</figcaption>
+          <figcaption>Nut · Multi-view 1</figcaption>
         </figure>
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/343415262.mp4" poster="static/images/video-posters/343415262.jpg" aria-label="Nut · Clip 3"></video>
+            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/1147201446.mp4" poster="static/images/video-posters/1147201446.jpg" aria-label="Nut · Multi-view 2"></video>
           </div>
-          <figcaption>Nut · Clip 3</figcaption>
+          <figcaption>Nut · Multi-view 2</figcaption>
         </figure>
+        </div>
+      </div>
+
+      <!-- ===== Simulation Videos: 在这里替换两段仿真对比视频 ===== -->
+      <div class="video-group">
+        <h3>Simulation Recordings</h3>
+        <div class="video-grid grid-two comparison-grid">
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
-          <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/60789955.mp4" poster="static/images/video-posters/60789955.jpg" aria-label="Nut · Clip 4"></video>
-          </div>
-          <figcaption>Nut · Clip 4</figcaption>
-        </figure>
-        <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
-          <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/965385884.mp4" poster="static/images/video-posters/965385884.jpg" aria-label="Nut · Clip 5"></video>
-          </div>
-          <figcaption>Nut · Clip 5</figcaption>
-        </figure>
-        <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
-          <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/997680083.mp4" poster="static/images/video-posters/997680083.jpg" aria-label="Nut · Clip 6"></video>
-          </div>
-          <figcaption>Nut · Clip 6</figcaption>
-        </figure>
-          </div>
-          <h4>Multi-view recordings</h4>
-          <div class="video-grid grid-two">
-        <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
-          <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/166289621.mp4" poster="static/images/video-posters/166289621.jpg" aria-label="Nut · Multi-view recording 1"></video>
-          </div>
-          <figcaption>Nut · Multi-view recording 1</figcaption>
-        </figure>
-        <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
-          <div class="video-slot">
-            <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/1147201446.mp4" poster="static/images/video-posters/1147201446.jpg" aria-label="Nut · Multi-view recording 2"></video>
-          </div>
-          <figcaption>Nut · Multi-view recording 2</figcaption>
-        </figure>
-          </div>
-          <h4>Simulation recordings</h4>
-          <div class="video-grid grid-two">
-        <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
             <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/1001628895.mp4" poster="static/images/video-posters/1001628895.jpg" aria-label="Nut · RL / student comparison 1"></video>
           </div>
           <figcaption>Nut · RL / student comparison 1</figcaption>
         </figure>
         <figure class="video-card">
-          <!-- 在这里替换视频路径、poster 封面和下方简短说明 -->
+          <!-- 在这里替换视频路径、poster 封面和下方说明 -->
           <div class="video-slot">
             <video autoplay muted loop playsinline controls preload="none" data-src="static/videos/1225127581.mp4" poster="static/images/video-posters/1225127581.jpg" aria-label="Nut · RL / student comparison 2"></video>
           </div>
           <figcaption>Nut · RL / student comparison 2</figcaption>
         </figure>
-          </div>
         </div>
       </div>
-      <!-- 综合介绍视频准备好后，可在这里增加 video 或使用以下嵌入示例 -->
+      <!-- 也可替换为以下 YouTube / Bilibili 嵌入示例 -->
       <!-- <div class="embed-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="DRIA overview" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div> -->
       <!-- <div class="embed-frame"><iframe src="https://player.bilibili.com/player.html?bvid=BV_ID" title="DRIA overview" loading="lazy" allowfullscreen></iframe></div> -->
-      <!-- 论文展示图保留在这里；本节只展示视频和图片，不列数字结果 -->
-      <div class="supplementary-block">
-        <h3 class="supplementary-heading">Additional experiment figures</h3>
-        <div class="supplementary-content">
-<figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_8.pdf" target="_blank" rel="noopener" aria-label="Open Figure 8 as a PDF"><img src="static/images/result-01.png" width="2401" height="1612" alt="Physical in-hand reorientation trajectories exposing the target ROIs" loading="lazy" decoding="async"></a>
-        <figcaption>Real-world reorientation of Carriage, Bearing1, and Bearing2.</figcaption>
-      </figure>
 
-          <h4>Simulation and real-world trajectories</h4>
-      <figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_9.pdf" target="_blank" rel="noopener" aria-label="Open Figure 9 as a PDF"><img src="static/images/result-02.png" width="2400" height="960" alt="Nut reorientation across simulation and real-world policies" loading="lazy" decoding="async"></a>
-        <figcaption>Nut trajectories from the simulation teacher, simulation student, and real-world student.</figcaption>
-      </figure>
-          <h4>Target ROI localization</h4>
-      <figure class="paper-figure ">
-        <!-- 在这里替换图片路径和图注；点击图片可打开原始 PDF -->
-        <a href="static/images/Figure_10.pdf" target="_blank" rel="noopener" aria-label="Open Figure 10 as a PDF"><img src="static/images/result-04.png" width="2400" height="665" alt="Target ROI localization for all four parts" loading="lazy" decoding="async"></a>
-        <figcaption>Target ROI localization in acquired RGB images.</figcaption>
-      </figure>
-          <p class="figure-note">The detector evaluates acquired images and does not control the hand. Reliable rejection of absent ROIs remains unresolved.</p>
+      <!-- ===== Experiment Figures: 图片缩小为左右排列；点击查看高清原始 PDF ===== -->
+      <div class="experiment-block">
+        <h3>Additional Experiment Figures</h3>
+        <div class="figure-gallery">
+        <figure class="paper-figure experiment-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_7.pdf" target="_blank" rel="noopener" aria-label="Open Figure_7.pdf as a PDF"><img src="static/images/fig7_tasks.png" width="2400" height="2266" alt="Initial and target poses of Nut, Carriage, Bearing1, and Bearing2" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Target poses</strong>Initial and target poses for the four parts.</figcaption>
+        </figure>
+        <figure class="paper-figure experiment-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_8.pdf" target="_blank" rel="noopener" aria-label="Open Figure_8.pdf as a PDF"><img src="static/images/result-01.png" width="2401" height="1612" alt="Physical in-hand reorientation trajectories exposing the target ROIs" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Real-world reorientation</strong>Carriage, Bearing1, and Bearing2.</figcaption>
+        </figure>
+        <figure class="paper-figure experiment-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_9.pdf" target="_blank" rel="noopener" aria-label="Open Figure_9.pdf as a PDF"><img src="static/images/result-02.png" width="2400" height="960" alt="Nut reorientation across simulation and real-world policies" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Simulation and real-world trajectories</strong>Nut teacher, simulation student, and real-world student.</figcaption>
+        </figure>
+        <figure class="paper-figure experiment-figure">
+          <!-- 在这里替换图片、原始 PDF 链接和图注；点击可查看高清原图 -->
+          <a href="static/images/Figure_10.pdf" target="_blank" rel="noopener" aria-label="Open Figure_10.pdf as a PDF"><img src="static/images/result-04.png" width="2400" height="665" alt="Target ROI localization for all four parts" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Target ROI localization</strong>Acquired RGB images of the four parts.</figcaption>
+        </figure>
         </div>
       </div>
     </section>
@@ -310,11 +283,6 @@
 
     </section>
 
-    <!-- ===== Acknowledgements: 基金信息直接展示 ===== -->
-    <div class="supplementary-block acknowledgements" id="acknowledgements">
-      <h3 class="supplementary-heading">Acknowledgements</h3>
-      <div class="supplementary-content"><p>This work was supported in part by the National Science and Technology Major Project on Intelligent Manufacturing Systems and Robots (Grant No. 2025ZD1603003); and in part by the National Natural Science Foundation of China under Grant 62373160, Grant 62503184, and Grant T2525012.</p></div>
-    </div>
   </main>
   <!-- ===== Footer: 模板来源与许可 ===== -->
   <footer class="site-footer"><div class="container">

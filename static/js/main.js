@@ -17,7 +17,7 @@
   }
   function syncNavigation() {
     if (!main || !nav) return;
-    sections = Array.from(main.querySelectorAll(':scope > section[id]')).filter(visible);
+    sections = Array.from(main.querySelectorAll('section[id][data-nav]')).filter(visible);
     nav.replaceChildren(...sections.map(section => {
       const link = document.createElement('a');
       link.href = `#${section.id}`;
@@ -35,6 +35,11 @@
       if (section.getBoundingClientRect().top <= navHeight + 100) current = section;
     }
     if (!current && sections[0]?.getBoundingClientRect().top < window.innerHeight * .6) current = sections[0];
+    // Side-by-side sections share a row; prefer the clicked anchor, otherwise the first.
+    if (current) {
+      const row = sections.filter(section => Math.abs(section.getBoundingClientRect().top - current.getBoundingClientRect().top) < 2);
+      current = row.find(section => `#${section.id}` === location.hash) || row[0];
+    }
     for (const link of navLinks) {
       const active = link.hash === `#${current?.id}`;
       const wasActive = link.getAttribute('aria-current') === 'location';
@@ -77,6 +82,7 @@
       target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
     }
     target.focus({ preventScroll: true });
+    queueScrollUpdate();
   });
 
   /* ===== Media loading: placeholder markers avoid requests for missing files ===== */
